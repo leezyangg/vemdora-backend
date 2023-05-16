@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('product_vending_machine', function (Blueprint $table) {
             $table->foreignId('stockID')->constrained('product_stock','stockID');
             $table->foreignId('vendingMachineID')->constrained('vending_machine','vendingMachineID');
-            $table->foreignId('supplierID')->constrained('supplier','supplierID');
+            //$table->foreignId('supplierID')->constrained('supplier','supplierID');
             $table->integer('stockQuantity');
-            $table->primary(['stockID', 'vendingMachineID','supplierID']);
+            //$table->primary(['stockID', 'vendingMachineID','supplierID']);
         });
     }
 
