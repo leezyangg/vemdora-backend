@@ -11,7 +11,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        //return 'test order controller';
+        $orders = Order::all();
+
+        return response()->json($orders);
     }
 
     /**
@@ -19,21 +22,27 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order = Order::create();
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $order = Order::find($id);
+
+        if ($order) {
+            return response()->json($order);
+        }
+    
+        return response()->json(['message' => 'Purchase not found'], 404);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         //
     }

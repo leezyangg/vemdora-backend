@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('userName')->nullable();
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('userType');
+            //$table->foreignId('walletID')->constrained('e_wallet','walletID');
+
+            //$table->timestamps();
         });
     }
 

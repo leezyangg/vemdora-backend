@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('stockName');
             $table->double('buyPrice');
             $table->double('sellPrice');
-            $table->integer('stockQuantity');
+            //$table->integer('stockQuantity');
         });
     }
 
