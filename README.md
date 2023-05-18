@@ -14,13 +14,17 @@ Follow the instruction below:
 ## Clone the repo from Github
 
 Run this in the folder that you wish to set up the project:
+
 git clone https://github.com/leezyangg/vemdora-backend.git
+
 Then run cd <repo_folder>
 
 ### Set up .env file and configuration
 
 In project's directory RUN :
+
 MacOS: mv .env.example .env
+
 Windows: copy .env.example .env
 
 Open .env file, configure database to your local MySql settings
@@ -38,16 +42,20 @@ composer install
 php artisan migrate
 
 If you want to drop all tables and remigrate:
+
 php artisan migrate
 
 ## Seeding(create) mock up data
 
 To check the seeder class name, go to /database/seeders
+
 php artisan db:seed <seeder_class_name>
 
 ## Starting Laravel developer server
 
 php artisan serve
+
+## Laravel Documentation
 
 [Laravel documentation](https://laravel.com/docs/contributions).
 
