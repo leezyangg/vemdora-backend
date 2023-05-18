@@ -9,15 +9,15 @@ class LoginController extends Controller
     public function verifyUser(Request $req){
         $input_email = $req->email;
         $input_password = $req->password;
-
-        $user = User::where('email', $email)->first();
-
-        if($user){
-            if (Hash::check($password, $user->password)) {
+        
+        $user = User::where('email', $input_email)->first();
+        
+        if($user && $user->password ==  $input_password){
+            //if (Hash::check($password, $user->password)) {
                 // User credentials are valid
                 return response()->json(['message' => 'Credentials are valid','userType'=> $user->userType],
                  200);
-            }
+           // }
        }else{
         return response()->json(['message' => 'Invalid credentials'], 401);
        }

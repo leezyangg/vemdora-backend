@@ -21,3 +21,4 @@ use App\Http\Controllers\OrderController;
 
 //Route::get('orders',[OrderController::class,'index']);
 Route::post('users',[LoginController::class,'signUp']);
+Route::get('users',[LoginController::class,'verifyUser']);
