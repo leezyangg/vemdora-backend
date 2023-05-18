@@ -11,6 +11,7 @@ class VendingMachine extends Model
 {
     use HasFactory;
     protected $table = 'vending_machine';
+    protected $primaryKey = 'vendingMachineID';
 
     protected $fillable = [ 
         'vendingMachineName','locationID'

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\VendingMachineController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,3 +25,8 @@ use App\Http\Controllers\SupplierController;
 Route::post('users',[LoginController::class,'signUp']);
 Route::get('users',[LoginController::class,'verifyUser']);
 Route::post('suppliers',[SupplierController::class,'registerSupplier']);
+Route::post('vendingMachines',[VendingMachineController::class,'registerVendingMachine']);
+Route::get('vendingMachines',[VendingMachineController::class,'getVendingMachines']);
+Route::get('vendingMachines/{vendingMachineID}',[VendingMachineController::class,'show']);
+Route::delete('vendingMachines/{vendingMachineID}/delete',[VendingMachineController::class,'deleteVendingMachine']);
+

@@ -12,7 +12,7 @@ class VendingMachineController extends Controller
      /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function getVendingMachines()
     {
         $vending_machine = VendingMachine::all();
         return response()->json($vending_machine);
@@ -24,23 +24,29 @@ class VendingMachineController extends Controller
     public function registerVendingMachine(Request $req)
     {
         //get all the items in an array
-        $product_items = $request['items'];
+        //$product_items = $req['items'];
         // find in database whether the location exist
         $location = Location::firstOrCreate(['locationName' => $req->locationName]);
-           
+        
         //register new vending machine
         $vending_machine = VendingMachine::create([
             "vendingMachineName" => $req->vendingMachineName,
             "locationID" =>  $location->locationID
         ]);
         //attach the corresponding product stock item to pivot table
-        foreach ($product_items as $item) {
-            $itemId = $item['stockID'];
-            $quantity = $item['stockQuantity'];
+        // foreach ($product_items as $item) {
+        //     $itemId = $item['stockID'];
+        //     $quantity = $item['stockQuantity'];
         
-            $vendingMachine->items()->attach($itemId, ['stockQuantity' => $quantity]);
+        //     $vendingMachine->items()->attach($itemId, ['stockQuantity' => $quantity]);
+        // }
+        
+        if ($vending_machine) {
+            return response()->json(['message' => 'Vending Machine is registered'], 200);
+        }else{
+            return response()->json(['message' => 'Vending Machine not found'], 404);
+
         }
-        
 
     }
 
@@ -71,7 +77,7 @@ class VendingMachineController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function deleteVendingMachine($id)
     {
         $vending_machine = VendingMachine::find($id);
 

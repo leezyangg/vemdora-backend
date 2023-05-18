@@ -9,4 +9,10 @@ class EWallet extends Model
 {
     use HasFactory;
     protected $table = 'e_wallet';
+    protected $fillable = [
+        'walletValue',
+        
+    ];
+    public $timestamps = false;
+
 }
