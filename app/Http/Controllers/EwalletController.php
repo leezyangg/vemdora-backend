@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EWallet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EwalletController extends Controller
 {
@@ -11,7 +13,7 @@ class EwalletController extends Controller
     // }
 
     public function getEwallet($userid){
-        $ewalletId = DB::table('user')->select('walletID')->where('userID',$userid)->first();
+        $ewalletId = DB::table('user')->select('walletID')->where('userID',$userid)->value('walletID');;
         $e_wallet = EWallet::find($ewalletId);
 
         if($e_wallet){
@@ -22,11 +24,11 @@ class EwalletController extends Controller
     }
 
     public function getEwalletAmount($userid){
-        $ewalletId = DB::table('user')->select('walletID')->where('userID',$userid)->first();
+        $ewalletId = DB::table('user')->select('walletID')->where('userID',$userid)->value('walletID');;
         $e_wallet = EWallet::find($ewalletId);
 
         if($e_wallet){
-            return response()->json($e_wallet->amount);
+            return response()->json($e_wallet->walletValue);
         }else{
             return response()->json(['message'=>'E wallet not found...']);
         }

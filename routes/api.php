@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\EwalletController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\VendingMachineController;
 /*
@@ -29,4 +30,5 @@ Route::post('vendingMachines',[VendingMachineController::class,'registerVendingM
 Route::get('vendingMachines',[VendingMachineController::class,'getVendingMachines']);
 Route::get('vendingMachines/{vendingMachineID}',[VendingMachineController::class,'show']);
 Route::delete('vendingMachines/{vendingMachineID}/delete',[VendingMachineController::class,'deleteVendingMachine']);
+Route::get('ewallets/{userID}',[EwalletController::class,'getEwallet']);
 
