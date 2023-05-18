@@ -1,0 +1,10 @@
+[
+    { "userName": "Zi Yang","email" : "123@gmail.com","password": "Test1234","userType" : "Public User"},
+    { "userName": "Isaac","email" : "456@gmail.com","password": "Test1234","userType" : "Public User"},
+    { "userName": "Jia Yi ","email" : "admin@gmail.com","password": "Test1234","userType" : "Business Owner"},
+    { "userName": "Wei Lin","email" : "designer@gmail.com","password": "Test1234","userType" : "Supplier"},
+    { "userName": "Ying Xin","email" : "frontend@gmail.com","password": "Test1234","userType" : "Supplier"},
+    { "userName": "ZhiYong","email" : "supply1@gmail.com","password": "Test1234","userType" : "Public User"},
+    { "userName": "MengFan","email" : "supply2@gmail.com","password": "Test1234","userType" : "Public User"}
+
+]

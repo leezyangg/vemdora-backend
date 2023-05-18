@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class EwalletController extends Controller
 {
-    public function checkEwalletBalance($ewalletid){
+    // public function checkEwalletBalance($ewalletid){
 
-    }
+    // }
 
     public function getEwallet($userid){
         $ewalletId = DB::table('user')->select('walletID')->where('userID',$userid)->first();
@@ -20,4 +20,26 @@ class EwalletController extends Controller
             return response()->json(['message'=>'E wallet not found...']);
         }
     }
+
+    public function getEwalletAmount($userid){
+        $ewalletId = DB::table('user')->select('walletID')->where('userID',$userid)->first();
+        $e_wallet = EWallet::find($ewalletId);
+
+        if($e_wallet){
+            return response()->json($e_wallet->amount);
+        }else{
+            return response()->json(['message'=>'E wallet not found...']);
+        }
+    }
+
+    // public function updateEwallet(Request $request, $userid){
+    //     $ewalletId = DB::table('user')->select('walletID')->where('userID',$userid)->first();
+    //     $e_wallet = EWallet::find($ewalletId);
+
+    //     if($e_wallet){
+    //         return response()->json($e_wallet);
+    //     }else{
+    //         return response()->json(['message'=>'E wallet not found...']);
+    //     }
+    // }
 }
