@@ -26,20 +26,12 @@ class VendingMachineController extends Controller
         //get all the items in an array
         $product_items = $request['items'];
         // find in database whether the location exist
-        $location = Location::where('locationName',$req->locationID)->first();
-       
-        if($location) {
-            $locationId = $location->locationID;
-        }else{
-              //if not exist create a new location
-              $new_location = Location::create(["locationName"=> $req->locationName]);
-              $locationId = $new_location->locationID;
-         }
+        $location = Location::firstOrCreate(['locationName' => $req->locationName]);
            
         //register new vending machine
         $vending_machine = VendingMachine::create([
             "vendingMachineName" => $req->vendingMachineName,
-            "locationID" =>  $locationId
+            "locationID" =>  $location->locationID
         ]);
         //attach the corresponding product stock item to pivot table
         foreach ($product_items as $item) {

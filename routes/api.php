@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\SupplierController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,3 +23,4 @@ use App\Http\Controllers\OrderController;
 //Route::get('orders',[OrderController::class,'index']);
 Route::post('users',[LoginController::class,'signUp']);
 Route::get('users',[LoginController::class,'verifyUser']);
+Route::post('suppliers',[SupplierController::class,'registerSupplier']);
