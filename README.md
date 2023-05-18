@@ -43,7 +43,7 @@ php artisan migrate
 
 If you want to drop all tables and remigrate:
 
-php artisan migrate
+php artisan migrate:fresh
 
 ## Seeding(create) mock up data
 
