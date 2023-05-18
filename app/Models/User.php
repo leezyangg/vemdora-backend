@@ -12,7 +12,8 @@ class User extends Model
         'name',
         'email',
         'password',
-        'userType'
+        'userType',
+        'walletID'
     ];
     public $timestamps = false;
 

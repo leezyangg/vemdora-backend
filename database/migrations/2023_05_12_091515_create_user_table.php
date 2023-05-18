@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('userType');
+            $table->foreignId('walletID')->nullable()->constrained('e_wallet','walletID')->cascadeOnDelete();
+
         });
     }
 
