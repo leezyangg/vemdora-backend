@@ -11,6 +11,7 @@ class Order extends Model
 {
     use HasFactory;
     protected $table = 'order';
+    protected $primaryKey = 'orderID';
 
     public function orderItems():HasMany{
         return $this->hasMany(ProductStock::class);

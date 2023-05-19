@@ -19,6 +19,6 @@ class VendingMachine extends Model
     public $timestamps = false;
 
     public function productItems():BelongsToMany{
-        return $this->belongsToMany(ProductStock::class,'product_vending_machine')->withPivot('stockQuantity');
+        return $this->belongsToMany(ProductStock::class,'product_vending_machine','vendingMachineID','stockID')->withPivot('stockQuantity');
     }
 }

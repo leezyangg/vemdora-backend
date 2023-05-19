@@ -24,7 +24,7 @@ class VendingMachineController extends Controller
     public function registerVendingMachine(Request $req)
     {
         //get all the items in an array
-        //$product_items = $req['items'];
+        $product_items = $req->items;
         // find in database whether the location exist
         $location = Location::firstOrCreate(['locationName' => $req->locationName]);
         
@@ -34,12 +34,12 @@ class VendingMachineController extends Controller
             "locationID" =>  $location->locationID
         ]);
         //attach the corresponding product stock item to pivot table
-        // foreach ($product_items as $item) {
-        //     $itemId = $item['stockID'];
-        //     $quantity = $item['stockQuantity'];
+        foreach ($product_items as $item) {
+            $itemId = $item['stockID'];
+            $quantity = $item['stockQuantity'];
         
-        //     $vendingMachine->items()->attach($itemId, ['stockQuantity' => $quantity]);
-        // }
+            $vending_machine->productItems()->attach($itemId, ['stockQuantity' => $quantity]);
+        }
         
         if ($vending_machine) {
             return response()->json(['message' => 'Vending Machine is registered'], 200);

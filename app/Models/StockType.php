@@ -9,4 +9,7 @@ class StockType extends Model
 {
     use HasFactory;
     protected $table = 'stock_type';
+    protected $primaryKey = 'level';
+    public $timestamps = false;
+
 }

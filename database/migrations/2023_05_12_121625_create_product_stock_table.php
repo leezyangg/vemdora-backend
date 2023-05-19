@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('stockID');
             $table->foreignId('level')->constrained('stock_type','level');
             $table->string('stockName');
-            $table->double('buyPrice');
+            $table->double('buyPrice')->nullable();
             $table->double('sellPrice');
             $table->integer('stockQuantity');
         });

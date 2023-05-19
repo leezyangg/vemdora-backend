@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id('orderID');
             $table->foreignId('stockID')->constrained('product_stock','stockID');
             $table->foreignId('publicID')->constrained('public_user','publicID');
+            $table->foreignId('vendingMachineID')->constrained('vending_machine','vendingMachineID');
             $table->integer('quantity');
         });
     }

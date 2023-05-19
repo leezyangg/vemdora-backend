@@ -1,0 +1,9 @@
+[
+{"stockName":"Nestle","level":1,"sellPrice":5.50,"stockQuantity":10},
+{"stockName":"Socks","level":2,"sellPrice":8.50,"stockQuantity":20},
+{"stockName":"Watch","level":3,"sellPrice":10.50,"stockQuantity":10},
+{"stockName":"Cola","level":4,"sellPrice":2.50,"stockQuantity":40},
+{"stockName":"USB","level":5,"sellPrice":45.50,"stockQuantity":10}
+
+
+]

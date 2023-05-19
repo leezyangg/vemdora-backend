@@ -11,9 +11,13 @@ class ProductStock extends Model
 {
     use HasFactory;
     protected $table = 'product_stock';
-
+    protected $primaryKey = 'stockID';
+    public $timestamps = false;
+    protected $fillable = [
+        'stockName','level','sellPrice','stockQuantity'
+    ];
     public function vendingMachine():BelongsToMany
     {
-        return $this->belongsToMany(ProductStock::class,'product_vending_machine')->withPivot('stockQuantity');
+        return $this->belongsToMany(ProductStock::class,'product_vending_machine','vendingMachineID','stockID')->withPivot('stockQuantity');
     }
 }

@@ -1,0 +1,7 @@
+[
+    {"level": 1,"stockType": "Snack"},
+    {"level": 2,"stockType": "Apparel"},
+    {"level": 3,"stockType": "Student kit"},
+    {"level": 4,"stockType": "Drinks"},
+    {"level": 5,"stockType": "Electronics"}
+]
