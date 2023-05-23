@@ -30,5 +30,7 @@ Route::post('vendingMachines',[VendingMachineController::class,'registerVendingM
 Route::get('vendingMachines',[VendingMachineController::class,'getVendingMachines']);
 Route::get('vendingMachines/{vendingMachineID}',[VendingMachineController::class,'show']);
 Route::delete('vendingMachines/{vendingMachineID}/delete',[VendingMachineController::class,'deleteVendingMachine']);
+Route::get('vendingMachines/{vendingMachineID}/items',[VendingMachineController::class,'getItems']);
+Route::post('vendingMachines/{vendingMachineID}/items',[VendingMachineController::class,'addItems']);
 Route::get('ewallets/{userID}',[EwalletController::class,'getEwallet']);
 

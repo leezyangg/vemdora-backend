@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Exception;
 use App\Models\Order;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
+
 class OrderController extends Controller
 {
     /**
@@ -20,10 +24,35 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function placeOrder(Request $req)
     {
-        $order = Order::create();
-    }
+       
+        try {
+            $items = $req->items;
+           
+            $order = Order::create([
+                    'publicID' => $order->publicID,
+                    'vendingMachineID' => $value->vendingMachineID,
+                    'transactionID' => $value->transactionID
+                ]);
+            foreach ($items as $item) {
+                $itemId = $item['stockID'];
+                $quantity = $item['orderedQuantity'];
+        
+                $order->productItems()->attach($itemId, ['orderedQuantity' => $quantity]);
+            }
+    
+           
+    
+            return response()->json(['message' => 'Order placed successfully', 'orderID' => $order->orderID], 200);
+        } catch (QueryException $e) {
+           
+            return response()->json(['message' => 'Error placing order', 'error' => $e->getMessage()], 500);
+        } catch (Exception $e) {
+           
+            return response()->json(['message' => 'Something went wrong', 'error' => $e->getMessage()], 500);
+        }
+}
 
     /**
      * Display the specified resource.

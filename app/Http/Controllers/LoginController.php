@@ -43,10 +43,10 @@ class LoginController extends Controller
         error_log('New wallet created: ' . json_encode($new_wallet));
 
         $new_user = User::create([
-            'userName' => $req->userName,
+            "userName" => $req->userName,
             'email'=>$req->email,
             'password'=> $req->password,
-            'userType'=>$req->userType,
+            'userType'=>'Public User',
             'walletID' => $new_wallet->walletID
         ]);
         if($new_user){

@@ -12,4 +12,9 @@ class StockType extends Model
     protected $primaryKey = 'level';
     public $timestamps = false;
 
+    public function vendingMachine()
+    {
+        return $this->belongsTo(VendingMachine::class,'type_vending_machine');
+    }
+
 }

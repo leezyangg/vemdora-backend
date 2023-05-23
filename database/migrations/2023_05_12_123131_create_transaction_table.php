@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('transactionID');
             $table->date('transactionDate');
             $table->double('transactionAmount');
-            $table->foreignId('orderID')->constrained('order','orderID');
+            //$table->foreignId('orderID')->constrained('order','orderID');
         });
     }
 

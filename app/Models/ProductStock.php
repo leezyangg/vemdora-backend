@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Order;
 use App\Models\VendingMachine;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,10 +15,15 @@ class ProductStock extends Model
     protected $primaryKey = 'stockID';
     public $timestamps = false;
     protected $fillable = [
-        'stockName','level','sellPrice','stockQuantity'
+        'stockName','level','buyPrice','sellPrice','stockQuantity'
     ];
     public function vendingMachine():BelongsToMany
     {
         return $this->belongsToMany(ProductStock::class,'product_vending_machine','vendingMachineID','stockID')->withPivot('stockQuantity');
+    }
+
+    public function order():BelongsToMany
+    {
+        return $this->belongsToMany(Order::class,'order_product','orderID','stockID')->withPivot('orderedQuantity');
     }
 }

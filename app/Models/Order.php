@@ -13,7 +13,9 @@ class Order extends Model
     protected $table = 'order';
     protected $primaryKey = 'orderID';
 
-    public function orderItems():HasMany{
-        return $this->hasMany(ProductStock::class);
+    
+    public function productItems():BelongsToMany{
+        return $this->belongsToMany(ProductStock::class,'order_product','orderID','stockID')->withPivot('orderedQuantity');
     }
+
 }

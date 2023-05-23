@@ -9,4 +9,8 @@ class Transaction extends Model
 {
     use HasFactory;
     protected $table = 'transaction';
+    public $timestamps = false;
+    protected $fillable = [
+        'transactionDate','transactionAmount'
+    ];
 }
