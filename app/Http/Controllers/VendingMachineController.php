@@ -93,7 +93,16 @@ class VendingMachineController extends Controller
 
     }
 
-    public function getItems(){
+    public function getItems($vendingMachineID){
+        $vendingMachine = VendingMachine::find($vendingMachineID);
+
+         if (!$vendingMachine) {
+            return response()->json(['message' => 'Vending machine not found'], 404);
+        }
+
+         $items = $vendingMachine->productItems()->get();
+
+        return response()->json(['items' => $items], 200);
 
     }
 

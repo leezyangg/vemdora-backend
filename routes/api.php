@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\EwalletController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\VendingMachineController;
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,6 @@ Route::post('vendingMachines/{vendingMachineID}/items',[VendingMachineController
 Route::post('orders/{vendingMachineID}/{userID}',[OrderController::class,'placeOrder']);
 Route::post('orders/calculatePrice',[OrderController::class,'calculateTotalPrice']);
 Route::get('ewallets/{userID}',[EwalletController::class,'getEwallet']);
+Route::get('dashboard/topProducts',[DashboardController::class,'getTopProducts']);
+Route::get('dashboard/topVendingMachines',[DashboardController::class,'getTopVendingMachines']);
 
