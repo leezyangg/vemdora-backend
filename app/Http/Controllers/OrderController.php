@@ -45,6 +45,7 @@ class OrderController extends Controller
     {
        
         try {
+        
             $items = $req->items;
             $transactionAmount = $this->calculateTotalPrice($req);
             $transactions = Transaction::create([
@@ -52,17 +53,26 @@ class OrderController extends Controller
                 'transactionAmount' => $transactionAmount
             ] );
            
+            // insert order record
             $order = Order::create([
                     'publicID' => $userID,
                     'vendingMachineID' => $vendingMachineID,
                     'transactionID' => 1
                 ]);
+
             foreach ($items as $item) {
+                //find item id in database
                 $found_item = ProductStock::where('stockName', $item['stockName'])->first();
                 $itemId = $found_item['stockID'];
                 $quantity = $item['orderedQuantity'];
-        
+                //attach the item in pivot table with the ordered quantity
                 $order->productItems()->attach($itemId, ['orderedQuantity' => $quantity]);
+
+                 // Update stock quantity in product_vending_machine pivot table
+                DB::table('product_vending_machine')->where([
+                        'vendingMachineID' => $vendingMachineID,
+                        'stockID' => $itemId
+                     ])->decrement('stockQuantity', $quantity);
             }
     
            
