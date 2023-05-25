@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Exception;
 use Carbon\Carbon;
 use App\Models\Order;
+use App\Models\EWallet;
 use App\Models\Transaction;
 use App\Models\ProductStock;
 use Illuminate\Http\Request;
@@ -24,6 +25,16 @@ class OrderController extends Controller
         return response()->json($orders);
     }
 
+    public function getEwallet($userid){
+        $ewalletId = DB::table('user')->select('walletID')->where('userID',$userid)->value('walletID');;
+        $e_wallet = EWallet::find($ewalletId);
+
+        if($e_wallet){
+            return $e_wallet;
+        }else{
+            return response()->json(['message' => 'E wallet not found...'], 404);
+        }
+    }
     public function calculateTotalPrice(Request $req){
         $items = $req->items;
         $total = 0;
@@ -48,11 +59,26 @@ class OrderController extends Controller
         
             $items = $req->items;
             $transactionAmount = $this->calculateTotalPrice($req);
-            $transactions = Transaction::create([
-                'transactionDate'=> Carbon::now(),
-                'transactionAmount' => $transactionAmount
-            ] );
-           
+            $e_wallet = $this->getEwallet($userID);
+            if ($e_wallet instanceof EWallet) {
+                 $balance = $e_wallet->walletValue;
+                if($balance >= $transactionAmount){
+                     $transactions = Transaction::create([
+                        'transactionDate'=> Carbon::now(),
+                        'transactionAmount' => $transactionAmount
+                     ] );
+
+                     //deduct the wallet value
+                     $e_wallet->walletValue -= $transactionAmount;
+                     $e_wallet->save();
+
+
+                }else{
+                     return response()->json(['message' => 'Not enough balance'], 404);
+            }
+        }else{
+            return response()->json(['message' => 'E wallet not found...'], 404);
+        }
             // insert order record
             $order = Order::create([
                     'publicID' => $userID,
@@ -77,7 +103,11 @@ class OrderController extends Controller
     
            
     
-            return response()->json(['message' => 'Order placed successfully', 'orderID' => $order->orderID], 200);
+            return response()->json([
+                'message' => 'Order placed successfully', 
+                'orderID' => $order->orderID,
+                'total'=> $transactionAmount
+            ], 200);
         } catch (QueryException $e) {
            
             return response()->json(['message' => 'Error placing order', 'error' => $e->getMessage()], 500);

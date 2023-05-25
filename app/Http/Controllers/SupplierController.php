@@ -57,7 +57,7 @@ class SupplierController extends Controller
                     'stockQuantity' => DB::raw('stockQuantity + '.$item['suppliedQuantity'])
                 ]);
 
-                return response()->json(['message'=> 'Item supplied successfully!'],200);
+                return response()->json(['message'=> 'Your update was succesful !'],200);
            
           }
         }catch(Exception $e){
