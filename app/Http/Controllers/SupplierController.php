@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\User;
+use App\Models\ProductStock;
 use Illuminate\Http\Request;
+use App\Models\VendingMachine;
 use Illuminate\Support\Facades\DB;
 
 class SupplierController extends Controller
@@ -34,8 +37,33 @@ class SupplierController extends Controller
 
          return response()->json($users);
     }
-    public function updateStock(){
+    public function updateStock(Request $req,$vendingMachineID){
+        try{
+        $vending_machine = VendingMachine::findOrFail($vendingMachineID);
+        $product_items = $req->items;
 
+          foreach ($product_items as $item) {
+           
+            $product = ProductStock::where('stockName', $item['stockName'])->first();
+            $supplierID = DB::table('user')
+                ->where('userName', $item['supplierName'])
+                ->where('userType', 'Supplier')
+                ->value('userID');
+
+                DB::table('product_vending_machine')
+                ->where('stockID', $product['stockID'])
+                ->where('vendingMachineID', $vendingMachineID)
+                ->update([
+                    'stockQuantity' => DB::raw('stockQuantity + '.$item['suppliedQuantity'])
+                ]);
+
+                return response()->json(['message'=> 'Item supplied successfully!'],200);
+           
+          }
+        }catch(Exception $e){
+            return response()->json(['message'=> $e->getMessage()],404);
+        }
+                
     }
 
     public function sendNotification(){

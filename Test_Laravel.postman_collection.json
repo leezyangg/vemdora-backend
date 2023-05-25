@@ -57,6 +57,36 @@
 			"response": []
 		},
 		{
+			"name": "top up ewallet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"topUpAmount\":50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/ewallets/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"ewallets",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "getVendingMachines",
 			"request": {
 				"method": "GET",
@@ -166,7 +196,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \r\n     \"items\": [\r\n    {\r\n      \"stockName\": \"100plus\",\r\n      \"level\":1,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n      \"stockQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"superring\",\r\n      \"level\":2,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":15\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"Tie\",\r\n      \"level\":3,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":20\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"USB\",\r\n      \"level\":4,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":12\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"Watch\",\r\n      \"level\":5,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":30\r\n      \r\n    }\r\n     ]\r\n}",
+					"raw": "{\r\n  \r\n     \"items\": [\r\n    {\r\n      \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"100plus\",\r\n      \"level\":1,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n      \"stockQuantity\":10\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"superring\",\r\n      \"level\":2,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":15\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"Tie\",\r\n      \"level\":3,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":20\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"USB\",\r\n      \"level\":4,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":12\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"Watch\",\r\n      \"level\":5,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":30\r\n      \r\n    }\r\n     ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -174,7 +204,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/api/vendingMachines/2/items",
+					"raw": "http://localhost:8000/api/vendingMachines/1/items",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -183,7 +213,7 @@
 					"path": [
 						"api",
 						"vendingMachines",
-						"2",
+						"1",
 						"items"
 					]
 				}
@@ -235,7 +265,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/api/orders/2/1",
+					"raw": "http://localhost:8000/api/orders/1/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -244,7 +274,7 @@
 					"path": [
 						"api",
 						"orders",
-						"2",
+						"1",
 						"1"
 					]
 				}
@@ -301,6 +331,72 @@
 						"dashboard",
 						"topVendingMachines"
 					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get supplier list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/suppliers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"suppliers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register new supplier",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"userName\": \"ZhiYong\",\r\n     \"email\": \"hello5@gmail.com\",\r\n     \"password\":\"Test test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/suppliers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"suppliers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update stock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n  \r\n     \"items\": [\r\n    {\r\n      \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"100plus\",\r\n      \"level\":1,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n      \"stockQuantity\":10\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"superring\",\r\n      \"level\":2,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":15\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"Tie\",\r\n      \"level\":3,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":20\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"USB\",\r\n      \"level\":4,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":12\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"Watch\",\r\n      \"level\":5,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":30\r\n      \r\n    }\r\n     ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				}
 			},
 			"response": []
