@@ -55,6 +55,14 @@ php artisan db:seed <seeder_class_name>
 
 php artisan serve
 
+## Testing API Endpoint and Request Data Format
+
+Take Note, We need desktop version POSTMAN for localhost testing.
+https://www.postman.com/downloads/
+
+Follow the tutorial in this link to import to your postman:
+https://www.softwaretestinghelp.com/postman-collections-import-export-generate-code/#:~:text=%231)%20To%20import%20a%20collection,file%20to%20the%20file%20system.&text=%232)%20Now%20open%20Postman%20and,Postman%20collection%20in%20the%20application
+
 ## Laravel Documentation
 
 [Laravel documentation](https://laravel.com/docs/contributions).

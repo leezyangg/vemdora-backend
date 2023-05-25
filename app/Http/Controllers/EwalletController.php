@@ -34,6 +34,11 @@ class EwalletController extends Controller
         }
     }
 
+    public function topUp(Request $req){
+        
+
+    }
+
     // public function updateEwallet(Request $request, $userid){
     //     $ewalletId = DB::table('user')->select('walletID')->where('userID',$userid)->value('walletID');;
     //     $e_wallet = EWallet::find($ewalletId);

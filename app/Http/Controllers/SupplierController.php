@@ -25,4 +25,12 @@ class SupplierController extends Controller
        
     }
 
+    public function updateStock(){
+
+    }
+
+    public function sendNotification(){
+        
+    }
+
 }
