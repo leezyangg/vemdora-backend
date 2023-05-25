@@ -6,6 +6,7 @@ use App\Models\Location;
 use App\Models\ProductStock;
 use Illuminate\Http\Request;
 use App\Models\VendingMachine;
+use Illuminate\Support\Facades\DB;
 
 class VendingMachineController extends Controller
 {
@@ -72,9 +73,14 @@ class VendingMachineController extends Controller
          foreach ($product_items as $item) {
            
             $product = ProductStock::where('stockName', $item['stockName'])->first();
+            $supplierID = DB::table('user')
+                ->where('userName', $item['supplierName'])
+                ->where('userType', 'Supplier')
+                ->value('userID');
+
             if(!$product){
                 $product_stock = ProductStock::create([
-                    //'stockID' => $stockID,
+                    'supplierID' => $supplierID,
                     'stockName'=> $item['stockName'],
                     'level'=>$item['level'],
                     'buyPrice'=>$item['buyPrice'],

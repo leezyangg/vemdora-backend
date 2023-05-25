@@ -26,6 +26,7 @@ use App\Http\Controllers\VendingMachineController;
 //Route::get('orders',[OrderController::class,'index']);
 Route::post('users',[LoginController::class,'signUp']);
 Route::get('users',[LoginController::class,'verifyUser']);
+Route::get('suppliers',[SupplierController::class,'getSupplierList']);
 Route::post('suppliers',[SupplierController::class,'registerSupplier']);
 Route::post('vendingMachines',[VendingMachineController::class,'registerVendingMachine']);
 Route::get('vendingMachines',[VendingMachineController::class,'getVendingMachines']);
@@ -36,6 +37,7 @@ Route::post('vendingMachines/{vendingMachineID}/items',[VendingMachineController
 Route::post('orders/{vendingMachineID}/{userID}',[OrderController::class,'placeOrder']);
 Route::post('orders/calculatePrice',[OrderController::class,'calculateTotalPrice']);
 Route::get('ewallets/{userID}',[EwalletController::class,'getEwallet']);
+Route::post('ewallets/{userID}',[EwalletController::class,'topUp']);
 Route::get('dashboard/topProducts',[DashboardController::class,'getTopProducts']);
 Route::get('dashboard/topVendingMachines',[DashboardController::class,'getTopVendingMachines']);
 

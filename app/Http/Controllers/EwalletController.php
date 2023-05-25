@@ -34,8 +34,23 @@ class EwalletController extends Controller
         }
     }
 
-    public function topUp(Request $req){
-        
+    public function topUp(Request $req,$userid){
+        $ewalletId = DB::table('user')->select('walletID')->where('userID',$userid)->value('walletID');;
+        $e_wallet = EWallet::find($ewalletId);
+
+       
+        if ($e_wallet) {
+            $affectedRows = EWallet::where('walletID', $ewalletId)
+                ->update(['walletValue' => DB::raw('walletValue + ' . $req->topUpAmount)]);
+    
+            if ($affectedRows) {
+                return response()->json(['message' => 'Wallet topped up successfully','topUpAmount'=>$req->topUpAmount],200);
+            }else{
+                return response()->json(['message' => 'Wallet not updated...'],404);
+            }
+        }else{
+            return response()->json(['message' => 'Wallet not found..'],404);
+        }
 
     }
 

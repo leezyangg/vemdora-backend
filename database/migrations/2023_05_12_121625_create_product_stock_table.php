@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('product_stock', function (Blueprint $table) {
             $table->id('stockID');
             $table->foreignId('level')->constrained('stock_type','level');
+            $table->foreignId('supplierID')->constrained('user','userID');
             $table->string('stockName');
             $table->double('buyPrice')->nullable();
             $table->double('sellPrice');

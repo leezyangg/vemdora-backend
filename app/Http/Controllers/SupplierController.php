@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SupplierController extends Controller
 {
@@ -12,9 +13,9 @@ class SupplierController extends Controller
         //
       
             $new_supplier = User::create([
-                'userName' => $req->userName,
+                'userName' =>$req->userName,
                 'email'=>$req->email,
-                'password'=> $req->password,
+                'password'=>$req->password,
                 'userType'=> "Supplier"
             ]);
             if($new_supplier){
@@ -25,6 +26,14 @@ class SupplierController extends Controller
        
     }
 
+    public function getSupplierList(){
+        $users = DB::table('user')
+        ->select('userID','userName','email', 'userType')
+        ->where('userType', 'Supplier')
+        ->get();
+
+         return response()->json($users);
+    }
     public function updateStock(){
 
     }

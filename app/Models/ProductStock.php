@@ -15,7 +15,7 @@ class ProductStock extends Model
     protected $primaryKey = 'stockID';
     public $timestamps = false;
     protected $fillable = [
-        'stockName','level','buyPrice','sellPrice','stockQuantity'
+        'supplierID','stockName','level','buyPrice','sellPrice','stockQuantity'
     ];
     public function vendingMachine():BelongsToMany
     {
