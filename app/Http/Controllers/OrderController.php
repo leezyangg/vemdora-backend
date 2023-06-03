@@ -6,10 +6,12 @@ use Exception;
 use Carbon\Carbon;
 use App\Models\Order;
 use App\Models\EWallet;
+use App\Mail\sendInvoice;
 use App\Models\Transaction;
 use App\Models\ProductStock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Database\QueryException;
 
 class OrderController extends Controller
@@ -85,6 +87,8 @@ class OrderController extends Controller
                     'vendingMachineID' => $vendingMachineID,
                     'transactionID' => 1
                 ]);
+            $user = DB::table('user')->where('userID', $userID)->first();    
+            $user_email = $user->email;
 
             foreach ($items as $item) {
                 //find item id in database
@@ -101,8 +105,9 @@ class OrderController extends Controller
                      ])->decrement('stockQuantity', $quantity);
             }
     
-           
-    
+            
+           $data = ['time' => Carbon::now()];
+            Mail::to($user_email)->send(new sendInvoice($data));
             return response()->json([
                 'message' => 'Order placed successfully', 
                 'orderID' => $order->orderID,
