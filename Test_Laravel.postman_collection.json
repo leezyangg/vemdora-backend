@@ -63,7 +63,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"topUpAmount\":50\r\n}",
+					"raw": "{\r\n    \"topUpAmount\":5000\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -145,7 +145,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"userName\": \"Isaac\",\"email\" : \"thg@gmail.com\",\"password\": \"Test1234\"}\r\n\r\n        \r\n",
+					"raw": "{ \"userName\": \"Isaac\",\"email\" : \"choongwenjian@gmail.com\",\"password\": \"Test1234\"}\r\n\r\n        \r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -411,6 +411,68 @@
 						"suppliers",
 						"update",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check below stock",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/suppliers/alerts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"suppliers",
+						"alerts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get location list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vm based on location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/location/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"location",
+						"2"
 					]
 				}
 			},

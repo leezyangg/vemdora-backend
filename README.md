@@ -63,6 +63,18 @@ https://www.postman.com/downloads/
 Follow the tutorial in this link to import to your postman:
 https://www.softwaretestinghelp.com/postman-collections-import-export-generate-code/#:~:text=%231)%20To%20import%20a%20collection,file%20to%20the%20file%20system.&text=%232)%20Now%20open%20Postman%20and,Postman%20collection%20in%20the%20application
 
+## Setting up Email configuration
+
+In .env file, change these:
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+
+and also other relevant info such sending from which email address.
+
+Next, go to your gmail account, select manage account - > security.
+In 2FA section, search for App password. Create one and paste it in .env file
+
 ## Laravel Documentation
 
 [Laravel documentation](https://laravel.com/docs/contributions).
