@@ -12,7 +12,7 @@ class Location extends Model
     protected $primaryKey = 'locationID';
 
     protected $fillable = [ 
-        'locationName'
+        'locationName','latitude','longitude'
     ];
     public $timestamps = false;
 }

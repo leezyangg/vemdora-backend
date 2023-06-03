@@ -1,5 +1,7 @@
 <?php
 
+use App\Mail\MailSender;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    //Mail::to('choongwenjian@gmail.com')->send(new MailSender());
+
     return view('welcome');
 });

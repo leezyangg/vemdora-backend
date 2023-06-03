@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\User;
+use App\Mail\MailSender;
 use App\Models\ProductStock;
 use Illuminate\Http\Request;
 use App\Models\VendingMachine;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class SupplierController extends Controller
 {
@@ -67,7 +69,37 @@ class SupplierController extends Controller
     }
 
     public function sendNotification(){
+        $products = DB::table('product_vending_machine')
+        ->where('stockQuantity', '<', 5)
+        ->get();
+        $low_in_stock = [];
+    foreach ($products as $product) {
+        // Generate your alert logic here (e.g., sending an email to your supplier)
+        $found_item = DB::table('product_stock')
+             ->join('user', 'product_stock.supplierID', '=', 'user.userID')
+             ->select('user.email','product_stock.stockName')
+             ->where('product_stock.stockID', '=', $product->stockID)
+             ->get();
+
+        $low_in_stock []=  $found_item;
         
+
+        // Mail::raw("Low stock alert for product: " . $found_item->stockName, function ($message) {
+        //     $message->to($found_item->email)->subject('Low Stock Alert');
+        // });
+
+        if(!empty($low_in_stock)){
+            foreach($low_in_stock as $stocks){
+                foreach($stocks as $stock){
+                    $data = ['stockName' => $stock->stockName, 'body'=>'Please supply it'];
+                    Mail::to('choongwenjian@gmail.com')->send(new MailSender($data));
+                }
+            }
+        }
+    }
+   
+    return response()->json(['low in stock' =>  $low_in_stock], 200);
+
     }
 
 }

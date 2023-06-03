@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\EWallet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -16,7 +17,12 @@ class LoginController extends Controller
         if($user && $user->password ==  $input_password){
             //if (Hash::check($password, $user->password)) {
                 // User credentials are valid
-                return response()->json(['message' => 'Credentials are valid','userType'=> $user->userType],
+                 // Generate a session ID
+                $sessionId = uniqid();
+
+        // Store the session ID in Laravel's session
+                Session::put('session_id', $sessionId);
+                return response()->json(['message' => 'Credentials are valid','userType'=> $user->userType,'session_id' => $sessionId],
                  200);
            // }
        }else{

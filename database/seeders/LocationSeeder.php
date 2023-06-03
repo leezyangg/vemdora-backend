@@ -19,7 +19,9 @@ class LocationSeeder extends Seeder
         foreach($locations as $key => $value)
         {
             Location::create([
-                "locationName" => $value->locationName
+                "locationName" => $value->locationName,
+                "latitude" => $value->latitude,
+                "longitude" => $value->longitude
                 
             ]);
         }
