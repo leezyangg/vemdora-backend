@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\Location;
 use App\Models\ProductStock;
 use Illuminate\Http\Request;
@@ -15,8 +16,13 @@ class VendingMachineController extends Controller
      */
     public function getVendingMachines()
     {
+        try{
         $vending_machine = VendingMachine::all();
         return response()->json($vending_machine);
+        }catch(Exception $e){
+            return response()->json(['message' => 'something went wrong...','error' => $e->getMessage()], 400);
+
+        }
     }
 
     /**
@@ -56,6 +62,7 @@ class VendingMachineController extends Controller
      */
     public function show($id)
     {
+        try{
         $vending_machine = VendingMachine::find($id);
 
         if ($vending_machine) {
@@ -64,20 +71,27 @@ class VendingMachineController extends Controller
             return response()->json(['message' => 'Vending Machine not found'], 404);
 
         }
+    }catch(Exception $e){
+        return response()->json(['message' => 'something went wrong...','error' => $e->getMessage()], 400);
+
+    }
     
     }
 
     public function addItems(Request $req,$vendingMachineID){
+        //find the vending machine
+        try {
         $vending_machine = VendingMachine::findOrFail($vendingMachineID);
         $product_items = $req->items;
          foreach ($product_items as $item) {
-           
+           //search for the product
             $product = ProductStock::where('stockName', $item['stockName'])->first();
+            //search for the supplier for the product
             $supplierID = DB::table('user')
                 ->where('userName', $item['supplierName'])
                 ->where('userType', 'Supplier')
                 ->value('userID');
-
+            //create a new product if it is a new record
             if(!$product){
                 $product_stock = ProductStock::create([
                     'supplierID' => $supplierID,
@@ -88,18 +102,23 @@ class VendingMachineController extends Controller
                     
                 ]);
                 error_log('New item created: ' . json_encode($product_stock));
+            //attach the quantity of product in pivot table
             $vending_machine->productItems()->attach($product_stock->stockID, ['stockQuantity' => $item['stockQuantity']]);
            
             }else{
-                //return response()->json(['message'=> 'something went wrong...'],200);
                 $vending_machine->productItems()->attach($product->stockID, ['stockQuantity' => $item['stockQuantity']]);
             }
         }
                     return response()->json(['message'=> 'Item added successfully!'],200);
+    }catch(Exception $e){
+        return response()->json(['message' => 'something went wrong...','error' => $e->getMessage()], 400);
+
+    }
 
     }
 
     public function getItems($vendingMachineID){
+        try{
         $vendingMachine = VendingMachine::find($vendingMachineID);
 
          if (!$vendingMachine) {
@@ -109,6 +128,10 @@ class VendingMachineController extends Controller
          $items = $vendingMachine->productItems()->get();
 
         return response()->json(['items' => $items], 200);
+    }catch(Exception $e){
+        return response()->json(['message' => 'something went wrong...','error' => $e->getMessage()], 400);
+
+    }
 
     }
 
@@ -123,9 +146,10 @@ class VendingMachineController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function deleteVendingMachine($id)
+    public function deleteVendingMachine($vendingMachineID)
     {
-        $vending_machine = VendingMachine::find($id);
+        try{
+        $vending_machine = VendingMachine::find($vendingMachineID);
 
         if($vending_machine){
             $vending_machine->delete();
@@ -133,5 +157,9 @@ class VendingMachineController extends Controller
         }else{
             return response()->json(['message'=> 'Something went wrong!'],404);
         }
+    }catch(Exception $e){
+        return response()->json(['message' => 'something went wrong...','error' => $e->getMessage()], 400);
+
+    }
     }
 }

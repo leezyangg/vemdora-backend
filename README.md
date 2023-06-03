@@ -65,6 +65,8 @@ https://www.softwaretestinghelp.com/postman-collections-import-export-generate-c
 
 ## Setting up Email configuration
 
+This setting below is using gmail server....
+
 In .env file, change these:
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.gmail.com
@@ -74,6 +76,12 @@ and also other relevant info such sending from which email address.
 
 Next, go to your gmail account, select manage account - > security.
 In 2FA section, search for App password. Create one and paste it in .env file
+
+## Run schedule job to check stock below minimum treshold
+
+php artisan schedule:work
+
+This command need to be run besides the serve(run it in another terminal).
 
 ## Laravel Documentation
 

@@ -13,6 +13,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
+        //schedule a job to send email notification to supplier every minute to check in db
         $schedule->command('email:send')->everyMinute();
     }
 

@@ -28,6 +28,7 @@ class OrderController extends Controller
     }
 
     public function getEwallet($userid){
+        try{
         $ewalletId = DB::table('user')->select('walletID')->where('userID',$userid)->value('walletID');;
         $e_wallet = EWallet::find($ewalletId);
 
@@ -36,10 +37,16 @@ class OrderController extends Controller
         }else{
             return response()->json(['message' => 'E wallet not found...'], 404);
         }
+    }catch(Exception $e){
+        return response()->json(['message' => 'something went wrong...','error' => $e->getMessage()], 400);
+
+    }
     }
     public function calculateTotalPrice(Request $req){
+        try{
         $items = $req->items;
         $total = 0;
+        //loop all items in list and sum the total
         foreach ($items as $item) {
             
             $quantity = $item['orderedQuantity'];
@@ -49,6 +56,10 @@ class OrderController extends Controller
         }
         //return response()->json(['total' => $total]);
         return $total;
+    }catch(Exception $e){
+        return response()->json(['message' => 'something went wrong...','error' => $e->getMessage()], 400);
+
+    }
 
     }
     /**
@@ -60,10 +71,14 @@ class OrderController extends Controller
         try {
         
             $items = $req->items;
+            //calculate the total amount
             $transactionAmount = $this->calculateTotalPrice($req);
+            //find user's ewallet
             $e_wallet = $this->getEwallet($userID);
+            //create transaction if ewallet is found
             if ($e_wallet instanceof EWallet) {
                  $balance = $e_wallet->walletValue;
+                 //only allow transaction if balance is enough
                 if($balance >= $transactionAmount){
                      $transactions = Transaction::create([
                         'transactionDate'=> Carbon::now(),
@@ -87,6 +102,7 @@ class OrderController extends Controller
                     'vendingMachineID' => $vendingMachineID,
                     'transactionID' => 1
                 ]);
+            //find user email
             $user = DB::table('user')->where('userID', $userID)->first();    
             $user_email = $user->email;
 
@@ -105,9 +121,10 @@ class OrderController extends Controller
                      ])->decrement('stockQuantity', $quantity);
             }
     
-            
+            //send invoice email to user after order
            $data = ['time' => Carbon::now()];
             Mail::to($user_email)->send(new sendInvoice($data));
+
             return response()->json([
                 'message' => 'Order placed successfully', 
                 'orderID' => $order->orderID,

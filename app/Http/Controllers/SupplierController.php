@@ -15,7 +15,8 @@ class SupplierController extends Controller
 {
     public function registerSupplier(Request $req)
     {
-        //
+        try{
+        //register new supplier
       
             $new_supplier = User::create([
                 'userName' =>$req->userName,
@@ -28,30 +29,42 @@ class SupplierController extends Controller
             }else{
                 return response()->json(['message' => 'something went wrong!'],404);
             }
+        }catch(Exception $e){
+            return response()->json(['message' => 'something went wrong...','error' => $e->getMessage()], 400);
+
+        }
        
     }
 
     public function getSupplierList(){
+        try{
         $users = DB::table('user')
         ->select('userID','userName','email', 'userType')
         ->where('userType', 'Supplier')
         ->get();
 
          return response()->json($users);
+        }catch(Exception $e){
+            return response()->json(['message' => 'something went wrong...','error' => $e->getMessage()], 400);
+
+        }
     }
     public function updateStock(Request $req,$vendingMachineID){
         try{
+        //find the vending machine in db
         $vending_machine = VendingMachine::findOrFail($vendingMachineID);
         $product_items = $req->items;
 
           foreach ($product_items as $item) {
-           
+            //find product to retrive it id
             $product = ProductStock::where('stockName', $item['stockName'])->first();
+            //find the supplier of product
             $supplierID = DB::table('user')
                 ->where('userName', $item['supplierName'])
                 ->where('userType', 'Supplier')
                 ->value('userID');
 
+                // update the stockQuantity
                 DB::table('product_vending_machine')
                 ->where('stockID', $product['stockID'])
                 ->where('vendingMachineID', $vendingMachineID)

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Exception;
 use App\Models\User;
 use App\Models\EWallet;
 use Illuminate\Http\Request;
@@ -9,11 +10,14 @@ use Illuminate\Support\Facades\Session;
 class LoginController extends Controller
 {
     public function verifyUser(Request $req){
+        try{
         $input_email = $req->email;
         $input_password = $req->password;
         
+        // search the user base on email from DB
         $user = User::where('email', $input_email)->first();
         
+        // if the user is found and the password is matched
         if($user && $user->password ==  $input_password){
             //if (Hash::check($password, $user->password)) {
                 // User credentials are valid
@@ -28,6 +32,10 @@ class LoginController extends Controller
        }else{
         return response()->json(['message' => 'Invalid credentials'], 401);
        }
+    }catch(Exception $e){
+        return response()->json(['message' => 'something went wrong...','error' => $e->getMessage()], 400);
+
+    } 
    }
 
 
@@ -42,12 +50,15 @@ class LoginController extends Controller
 //    }
 
     public function signUp(Request $req){
+        try{
+        //create a new ewallet for the new user
         $new_wallet = EWallet::create([
             "walletValue" => 0
             
         ]);
         error_log('New wallet created: ' . json_encode($new_wallet));
 
+        //store the new user record into db
         $new_user = User::create([
             "userName" => $req->userName,
             'email'=>$req->email,
@@ -62,6 +73,10 @@ class LoginController extends Controller
         }
 
         error_log('New user created: ' . json_encode($new_user));
+    }catch(Exception $e){
+        return response()->json(['message' => 'something went wrong...','error' => $e->getMessage()], 400);
+
+    }
 
     }
 }
