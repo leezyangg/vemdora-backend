@@ -26,7 +26,7 @@ class LoginController extends Controller
 
         // Store the session ID in Laravel's session
                 Session::put('session_id', $sessionId);
-                return response()->json(['message' => 'Credentials are valid','userType'=> $user->userType,'session_id' => $sessionId],
+                return response()->json(['message' => 'Credentials are valid','userType'=> $user->userType,'userID'=>$user->userID,'session_id' => $sessionId],
                  200);
            // }
        }else{
