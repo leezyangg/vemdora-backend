@@ -24,25 +24,44 @@ use App\Http\Controllers\VendingMachineController;
 //     return $request->user();
 // });
 
-//Route::get('orders',[OrderController::class,'index']);
+//sign up, create a new user record
 Route::post('users',[LoginController::class,'signUp']);
+//verify user, get the user based on the email and password
 Route::get('users',[LoginController::class,'verifyUser']);
+//get a list of suppliers
 Route::get('suppliers',[SupplierController::class,'getSupplierList']);
+//register suppliers
 Route::post('suppliers/register',[SupplierController::class,'registerSupplier']);
+//update stock
 Route::post('suppliers/update/{vendingMachineID}',[SupplierController::class,'updateStock']);
+//send notification
 Route::get('suppliers/alerts',[SupplierController::class,'sendNotification']);
+//register vending machine
 Route::post('vendingMachines',[VendingMachineController::class,'registerVendingMachine']);
+//retrive a list of vending machine
 Route::get('vendingMachines',[VendingMachineController::class,'getVendingMachines']);
+//retrive a single vending machine base on id
 Route::get('vendingMachines/{vendingMachineID}',[VendingMachineController::class,'show']);
+//delete a vending machine base on id
 Route::delete('vendingMachines/{vendingMachineID}/delete',[VendingMachineController::class,'deleteVendingMachine']);
+//retrive a list of available items in a vending machine
 Route::get('vendingMachines/{vendingMachineID}/items',[VendingMachineController::class,'getItems']);
+//add items into a vending machine
 Route::post('vendingMachines/{vendingMachineID}/items',[VendingMachineController::class,'addItems']);
+//place an order
 Route::post('orders/{vendingMachineID}/{userID}',[OrderController::class,'placeOrder']);
+//calculate total price of the order
 Route::post('orders/calculatePrice',[OrderController::class,'calculateTotalPrice']);
+//get ewallet of a user
 Route::get('ewallets/{userID}',[EwalletController::class,'getEwallet']);
+//top up ewallet
 Route::post('ewallets/{userID}',[EwalletController::class,'topUp']);
+//retrive the top 5 products
 Route::get('dashboard/topProducts',[DashboardController::class,'getTopProducts']);
+//retrive the top 5 vending machine
 Route::get('dashboard/topVendingMachines',[DashboardController::class,'getTopVendingMachines']);
+//retrive a list of location
 Route::get('location',[LocationController::class,'getLocationList']);
+//show nearby vending machine base on location
 Route::get('location/{locationID}',[LocationController::class,'showVendingMachine']);
 

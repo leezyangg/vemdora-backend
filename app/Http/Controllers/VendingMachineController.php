@@ -98,7 +98,8 @@ class VendingMachineController extends Controller
                     'stockName'=> $item['stockName'],
                     'level'=>$item['level'],
                     'buyPrice'=>$item['buyPrice'],
-                    'sellPrice'=>$item['sellPrice']
+                    'sellPrice'=>$item['sellPrice'],
+                    'imgaeURL'=>$item['imageURL']
                     
                 ]);
                 error_log('New item created: ' . json_encode($product_stock));

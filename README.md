@@ -50,6 +50,8 @@ php artisan migrate:fresh
 To check the seeder class name, go to /database/seeders
 
 php artisan db:seed <seeder_class_name>
+php artisan db:seed LocationSeeder
+php artisan db:seed StockTypeSeeder
 
 ## Starting Laravel developer server
 
