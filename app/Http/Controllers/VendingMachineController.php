@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\Location;
+use App\Models\StockType;
 use App\Models\ProductStock;
 use Illuminate\Http\Request;
 use App\Models\VendingMachine;
@@ -136,6 +137,16 @@ class VendingMachineController extends Controller
 
     }
 
+    public function getStockType(){
+        try{
+        // get all location from DB
+        $stock_type = StockType::all();
+
+        return response()->json(['stockType' => $stock_type],200);
+        }catch(Exception $e){
+            return response()->json(['message' => 'something went wrong...','error' => $e->getMessage()], 400);
+        }
+    }
     /**
      * Update the specified resource in storage.
      */

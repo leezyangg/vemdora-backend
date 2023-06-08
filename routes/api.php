@@ -42,6 +42,8 @@ Route::post('vendingMachines',[VendingMachineController::class,'registerVendingM
 Route::get('vendingMachines',[VendingMachineController::class,'getVendingMachines']);
 //retrive a single vending machine base on id
 Route::get('vendingMachines/{vendingMachineID}',[VendingMachineController::class,'show']);
+//get Stock type and level
+Route::get('stocktype',[VendingMachineController::class,'getStockType']);
 //delete a vending machine base on id
 Route::delete('vendingMachines/{vendingMachineID}/delete',[VendingMachineController::class,'deleteVendingMachine']);
 //retrive a list of available items in a vending machine
