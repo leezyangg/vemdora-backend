@@ -19,7 +19,8 @@ class SupplierController extends Controller
         //register new supplier
       
             $new_supplier = User::create([
-                'userName' =>$req->userName,
+                'companyName' => $req->companyName,
+                'userName' =>$req->pic,
                 'email'=>$req->email,
                 'password'=>$req->password,
                 'userType'=> "Supplier"

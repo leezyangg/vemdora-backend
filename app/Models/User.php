@@ -11,11 +11,12 @@ class User extends Model
     protected $primaryKey = 'userID';
 
     protected $fillable = [
-        'name',
+        'userName',
         'email',
         'password',
         'userType',
-        'walletID'
+        'walletID',
+        'companyName'
     ];
     public $timestamps = false;
 
