@@ -1,0 +1,7 @@
+[
+    { "locationID": 1, "vendingMachineName" : "FBMK Block B"},
+    { "locationID": 2, "vendingMachineName" : "FBMK Block C"},
+    { "locationID": 3, "vendingMachineName" : "FBMK Block C"},
+    { "locationID": 4, "vendingMachineName" : "FBMK Block C"},
+    { "locationID": 4, "vendingMachineName" : "FBMK Block C"}
+]

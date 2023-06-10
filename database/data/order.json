@@ -1,0 +1,49 @@
+[
+    {
+        "items": [
+            {
+              "stockName": "100plus",
+              "level":1,
+              "buyPrice":0.5,
+              "sellPrice":2.5,
+              "orderedQuantity":10
+              
+            },
+            {
+              "stockName": "superring",
+              "level":2,
+              "buyPrice":0.5,
+              "sellPrice":2.5,
+                "orderedQuantity":10
+              
+            },
+            {
+              "stockName": "Tie",
+              "level":3,
+              "buyPrice":0.5,
+              "sellPrice":2.5,
+               "orderedQuantity":10
+              
+            },
+            {
+              "stockName": "USB",
+              "level":4,
+              "buyPrice":0.5,
+              "sellPrice":2.5,
+                 "orderedQuantity":10
+              
+            },
+            {
+              "stockName": "Watch",
+              "level":5,
+              "buyPrice":0.5,
+              "sellPrice":2.5,
+                "orderedQuantity":10
+              
+            }
+        ],
+        
+    "publicID":1,
+    "vendingMachineID" :1
+    }
+]

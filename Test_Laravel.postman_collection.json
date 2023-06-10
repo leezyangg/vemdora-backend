@@ -39,14 +39,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{hostname}}/api/ewallets/8",
+					"raw": "{{hostname}}/api/ewallets/1",
 					"host": [
 						"{{hostname}}"
 					],
 					"path": [
 						"api",
 						"ewallets",
-						"8"
+						"1"
 					]
 				}
 			},
@@ -67,14 +67,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{hostname}}/api/ewallets/8",
+					"raw": "{{hostname}}/api/ewallets/7",
 					"host": [
 						"{{hostname}}"
 					],
 					"path": [
 						"api",
 						"ewallets",
-						"8"
+						"7"
 					]
 				}
 			},
@@ -128,7 +128,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"123@gmail.com\",\"password\":\"Test1234\"\r\n}",
+					"raw": "{\r\n    \"email\":\"hello5@gmail.com\",\"password\":\"Test test\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -202,7 +202,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \r\n     \"items\": [\r\n    {\r\n      \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"100plus\",\r\n      \"level\":1,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n      \"stockQuantity\":10,\r\n      \"imageURL\":\"\"\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"superring\",\r\n      \"level\":2,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":15,\r\n        \"imageURL\":\"\"\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"Tie\",\r\n      \"level\":3,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":20,\r\n        \"imageURL\":\"\"\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"USB\",\r\n      \"level\":4,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":12,\r\n        \"imageURL\":\"\"\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"Watch\",\r\n      \"level\":5,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":30,\r\n        \"imageURL\":\"\"\r\n      \r\n    }\r\n     ]\r\n}",
+					"raw": "{\r\n  \r\n     \"items\": [\r\n    {\r\n       \"stockName\":\"Pepsi\",\r\n   \"level\":1,\"sellPrice\":5.50,\r\n   \"buyPrice\":10,\r\n   \"supplierName\":\"Wei Lin\",\r\n   \"stockQuantity\":10, \r\n   \"imageURL\":\"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de\"\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"superring\",\r\n      \"level\":2,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":15,\r\n        \"imageURL\":\"\"\r\n      \r\n    },\r\n    {\r\n    \"stockName\":\"superring\",\r\n   \"level\":2,\"sellPrice\":5.50,\r\n   \"buyPrice\":10,\r\n   \"supplierName\":\"Wei Lin\",\r\n   \"stockQuantity\":10, \r\n   \"imageURL\":\"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de\"\r\n    },\r\n    {\r\n    \"stockName\":\"Tie\",\r\n   \"level\":3,\"sellPrice\":5.50,\r\n   \"buyPrice\":10,\r\n   \"supplierName\":\"Wei Lin\",\r\n   \"stockQuantity\":10, \r\n   \"imageURL\":\"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de\"\r\n    },\r\n    {\r\n      \"stockName\":\"USB\",\r\n   \"level\":4,\"sellPrice\":5.50,\r\n   \"buyPrice\":10,\r\n   \"supplierName\":\"Wei Lin\",\r\n   \"stockQuantity\":10, \r\n   \"imageURL\":\"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de\"\r\n      \r\n    },\r\n    {\r\n        \"stockName\":\"Watch\",\r\n   \"level\":5,\"sellPrice\":5.50,\r\n   \"buyPrice\":10,\r\n   \"supplierName\":\"Wei Lin\",\r\n   \"stockQuantity\":10, \r\n   \"imageURL\":\"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de\"\r\n    }\r\n     ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -261,7 +261,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \r\n     \"items\": [\r\n    {\r\n      \"stockName\": \"100plus\",\r\n      \"level\":1,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n      \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"superring\",\r\n      \"level\":2,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"Tie\",\r\n      \"level\":3,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n       \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"USB\",\r\n      \"level\":4,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n         \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"Watch\",\r\n      \"level\":5,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"orderedQuantity\":10\r\n      \r\n    }\r\n     ]\r\n}",
+					"raw": "{\r\n  \r\n     \"items\": [\r\n    {\r\n      \"stockName\": \"Pepsi\",\r\n      \"level\":1,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n      \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"superring\",\r\n      \"level\":2,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"Tie\",\r\n      \"level\":3,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n       \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"USB\",\r\n      \"level\":4,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n         \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"Watch\",\r\n      \"level\":5,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"orderedQuantity\":10\r\n      \r\n    }\r\n     ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -269,7 +269,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{hostname}}/api/orders/1/9",
+					"raw": "{{hostname}}/api/orders/1/7",
 					"host": [
 						"{{hostname}}"
 					],
@@ -277,7 +277,7 @@
 						"api",
 						"orders",
 						"1",
-						"9"
+						"7"
 					]
 				}
 			},
@@ -358,7 +358,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n     \"userName\": \"ZhiYong\",\r\n     \"email\": \"hello5@gmail.com\",\r\n     \"password\":\"Test test\"\r\n}",
+					"raw": "{\r\n     \"companyName\":\"Nestle\",\r\n     \"pic\": \"Zhi Yong\",\r\n     \"email\": \"hello7@gmail.com\",\r\n     \"password\":\"Test test\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

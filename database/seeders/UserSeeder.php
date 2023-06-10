@@ -20,9 +20,11 @@ class UserSeeder extends Seeder
         {
             User::create([
                 "userName" => $value->userName,
+                "companyName" => property_exists($value, 'companyName') ? $value->companyName : null,
                 "email"=> $value->email,
                 "password" => $value->password,
-                "userType"=> $value->userType
+                "userType"=> $value->userType,
+                "walletID"=> property_exists($value, 'walletID') ? $value->walletID : null,
             ]);
         }
     }

@@ -73,6 +73,7 @@ class OrderController extends Controller
             $items = $req->items;
             //calculate the total amount
             $transactionAmount = $this->calculateTotalPrice($req);
+            //$transactionID = 0;
             //find user's ewallet
             $e_wallet = $this->getEwallet($userID);
             //create transaction if ewallet is found
@@ -80,14 +81,21 @@ class OrderController extends Controller
                  $balance = $e_wallet->walletValue;
                  //only allow transaction if balance is enough
                 if($balance >= $transactionAmount){
-                     $transactions = Transaction::create([
+                     $transaction = Transaction::create([
                         'transactionDate'=> Carbon::now(),
                         'transactionAmount' => $transactionAmount
                      ] );
-
-                     //deduct the wallet value
-                     $e_wallet->walletValue -= $transactionAmount;
-                     $e_wallet->save();
+                     if($transaction){
+                       
+                        $order = Order::create([
+                            'publicID' => $userID,
+                            'vendingMachineID' => $vendingMachineID,
+                            'transactionID' => $transaction->transactionID
+                        ]);
+                        $e_wallet->walletValue -= $transactionAmount;
+                        $e_wallet->save();
+                     }
+                   
 
 
                 }else{
@@ -97,11 +105,12 @@ class OrderController extends Controller
             return response()->json(['message' => 'E wallet not found...'], 404);
         }
             // insert order record
-            $order = Order::create([
-                    'publicID' => $userID,
-                    'vendingMachineID' => $vendingMachineID,
-                    'transactionID' => 1
-                ]);
+           
+            // $order = Order::create([
+            //         'publicID' => $userID,
+            //         'vendingMachineID' => $vendingMachineID,
+            //         'transactionID' => $transactionID
+            //     ]);
             //find user email
             $user = DB::table('user')->where('userID', $userID)->first();    
             $user_email = $user->email;
@@ -137,7 +146,9 @@ class OrderController extends Controller
            
             return response()->json(['message' => 'Something went wrong', 'error' => $e->getMessage()], 500);
         }
+        
 }
+
 
     /**
      * Display the specified resource.

@@ -9,6 +9,7 @@ class Transaction extends Model
 {
     use HasFactory;
     protected $table = 'transaction';
+    protected $primaryKey = 'transactionID';
     public $timestamps = false;
     protected $fillable = [
         'transactionDate','transactionAmount'

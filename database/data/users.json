@@ -1,10 +1,10 @@
 [
-    { "userName": "Zi Yang","email" : "123@gmail.com","password": "Test1234","userType" : "Public User"},
-    { "userName": "Isaac","email" : "456@gmail.com","password": "Test1234","userType" : "Public User"},
+    { "userName": "Zi Yang","email" : "123@gmail.com","password": "Test1234","userType" : "Public User","walletID":1},
+    { "userName": "Isaac","email" : "456@gmail.com","password": "Test1234","userType" : "Public User","walletID":2},
     { "userName": "Jia Yi ","email" : "admin@gmail.com","password": "Test1234","userType" : "Business Owner"},
-    { "userName": "Wei Lin","email" : "designer@gmail.com","password": "Test1234","userType" : "Supplier"},
-    { "userName": "Ying Xin","email" : "frontend@gmail.com","password": "Test1234","userType" : "Supplier"},
-    { "userName": "ZhiYong","email" : "supply1@gmail.com","password": "Test1234","userType" : "Public User"},
-    { "userName": "MengFan","email" : "supply2@gmail.com","password": "Test1234","userType" : "Public User"}
+    { "userName": "Wei Lin","email" : "designer@gmail.com","password": "Test1234","userType" : "Supplier","companyName":"Nestle"},
+    { "userName": "Ying Xin","email" : "frontend@gmail.com","password": "Test1234","userType" : "Supplier","companyName":"Nestle"},
+    { "userName": "ZhiYong","email" : "public1@gmail.com","password": "Test1234","userType" : "Public User","walletID":3},
+    { "userName": "MengFan","email" : "public2@gmail.com","password": "Test1234","userType" : "Public User","walletID":4}
 
 ]
