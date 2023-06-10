@@ -38,6 +38,46 @@
    "supplierName":"Wei Lin",
    "stockQuantity":10, 
    "imageURL":"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de"
+},
+{"vendingMachineID":2,
+  "stockName":"Coca Cola",
+   "level":1,"sellPrice":5.50,
+   "buyPrice":10,
+   "supplierName":"Ying Xin",
+   "stockQuantity":10, 
+   "imageURL":"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de"
+},
+{"vendingMachineID":2,
+  "stockName":"Mr Potato",
+   "level":2,"sellPrice":5.50,
+   "buyPrice":10,
+   "supplierName":"Ying Xin",
+   "stockQuantity":10, 
+   "imageURL":"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de"
+},
+{"vendingMachineID":2,
+  "stockName":"Socks",
+   "level":3,"sellPrice":5.50,
+   "buyPrice":10,
+   "supplierName":"Ying Xin",
+   "stockQuantity":10, 
+   "imageURL":"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de"
+},
+{"vendingMachineID":2,
+  "stockName":"Eat Phone",
+   "level":4,"sellPrice":5.50,
+   "buyPrice":10,
+   "supplierName":"Ying Xin",
+   "stockQuantity":10, 
+   "imageURL":"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de"
+},
+{"vendingMachineID":2,
+  "stockName":"Spec",
+   "level":5,"sellPrice":5.50,
+   "buyPrice":10,
+   "supplierName":"Ying Xin",
+   "stockQuantity":10, 
+   "imageURL":"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de"
 }
 
 
