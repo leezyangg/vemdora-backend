@@ -18,9 +18,8 @@ class ProductStockSeeder extends Seeder
     {
         $json = File::get("database\data\product.json");
         $product = json_decode($json);
-       
-        foreach($product as $key => $value)
-        {
+
+        foreach ($product as $key => $value) {
             $vending_machine = VendingMachine::findOrFail($value->vendingMachineID);
             //search for the product
             $items = ProductStock::where('stockName', $value->stockName)->first();
@@ -29,24 +28,22 @@ class ProductStockSeeder extends Seeder
                 ->where('userName', $value->supplierName)
                 ->where('userType', 'Supplier')
                 ->value('userID');
-            
-            if(!$items){
+
+            if (!$items) {
                 $product_stock = ProductStock::create([
-                    
+
                     'supplierID' => $supplierID,
-                    'stockName'=> $value->stockName,
-                    'level'=>$value->level,
-                    'buyPrice'=>$value->buyPrice,
-                    'sellPrice'=>$value->sellPrice,
-                    'imageURL'=>$value->imageURL
-                
-            ]);
-            $vending_machine->productItems()->attach($product_stock->stockID, ['stockQuantity' => $value->stockQuantity]);
+                    'stockName' => $value->stockName,
+                    'level' => $value->level,
+                    'buyPrice' => $value->buyPrice,
+                    'sellPrice' => $value->sellPrice,
+                    'imageURL' => $value->imageURL
 
-        }else{
-            $vending_machine->productItems()->attach($product->stockID, ['stockQuantity' => $value->stockQuantity]);
-
-        }
+                ]);
+                $vending_machine->productItems()->attach($product_stock->stockID, ['stockQuantity' => $value->stockQuantity]);
+            } else {
+                $vending_machine->productItems()->attach($product->stockID, ['stockQuantity' => $value->stockQuantity]);
+            }
         }
     }
 }

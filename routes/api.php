@@ -54,6 +54,8 @@ Route::post('vendingMachines/{vendingMachineID}/items',[VendingMachineController
 Route::post('orders/{vendingMachineID}/{userID}',[OrderController::class,'placeOrder']);
 //calculate total price of the order
 Route::post('orders/calculatePrice',[OrderController::class,'calculateTotalPrice']);
+//get mock sales data
+Route::get('orders/sales',[OrderController::class,'getSales']);
 //get ewallet of a user
 Route::get('ewallets/{userID}',[EwalletController::class,'getEwallet']);
 //top up ewallet

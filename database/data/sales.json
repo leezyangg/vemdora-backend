@@ -1,0 +1,57 @@
+[
+    {
+       "month": "Jan",
+       "year": "2022",
+       "sales": 120
+    },
+    {
+       "month": "Feb",
+       "year": "2022",
+       "sales": 150
+    },
+    {
+       "month": "Mar",
+       "year": "2022",
+       "sales": 90
+    },
+    {
+       "month": "Apr",
+       "year": "2022",
+       "sales": 45
+    },
+    {
+       "month": "May",
+       "year": "2022",
+       "sales": 88
+    },
+    {
+       "month": "June",
+       "year": "2022",
+       "sales": 62
+    },
+    {
+       "month": "Jan",
+       "year": "2023",
+       "sales": 100
+    },
+    {
+       "month": "Feb",
+       "year": "2023",
+       "sales": 110
+    },
+    {
+       "month": "Mar",
+       "year": "2023",
+       "sales": 80
+    },
+    {
+       "month": "Apr",
+       "year": "2023",
+       "sales": 25
+    },
+    {
+       "month": "May",
+       "year": "2023",
+       "sales": 78
+    }
+ ]
