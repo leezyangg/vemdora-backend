@@ -64,6 +64,8 @@ Route::post('ewallets/{userID}',[EwalletController::class,'topUp']);
 Route::get('dashboard/topProducts',[DashboardController::class,'getTopProducts']);
 //retrive the top 5 vending machine
 Route::get('dashboard/topVendingMachines',[DashboardController::class,'getTopVendingMachines']);
+//retrive review of dashboard
+Route::get('dashboard/review',[DashboardController::class,'getReview']);
 //retrive a list of location
 Route::get('location',[LocationController::class,'getLocationList']);
 //show nearby vending machine base on location

@@ -45,9 +45,13 @@ class DashboardController extends Controller
         try{
         //get the top 5 vending machine from DB
         $topVendingMachines = DB::table('order')
-        ->select('order.vendingMachineID', DB::raw('SUM(order_product.orderedQuantity * product_stock.sellPrice) as totalSales'), DB::raw('SUM(order_product.orderedQuantity * (product_stock.sellPrice - product_stock.buyPrice)) as totalProfit'))
+        ->select('vending_machine.vendingMachineName',
+        'order.vendingMachineID', 
+        DB::raw('SUM(order_product.orderedQuantity * product_stock.sellPrice) as totalSales'), 
+        DB::raw('SUM(order_product.orderedQuantity * (product_stock.sellPrice - product_stock.buyPrice)) as totalProfit'))
         ->join('order_product', 'order.orderID', '=', 'order_product.orderID')
         ->join('product_stock', 'order_product.stockID', '=', 'product_stock.stockID')
+        ->join('vending_machine','vending_machine.vendingMachineID','=','order.vendingMachineID')
         ->groupBy('order.vendingMachineID')
         ->orderByDesc('totalSales')
         ->limit(5)
@@ -59,6 +63,7 @@ class DashboardController extends Controller
     foreach ($topVendingMachines as $vendingMachine) {
         $vendingMachineData = [
             'vendingMachineID' => $vendingMachine->vendingMachineID,
+            'vendingMachineName' => $vendingMachine->vendingMachineName,
             'totalSales' => $vendingMachine->totalSales,
             'totalProfit' => $vendingMachine->totalProfit,
         ];
@@ -71,5 +76,29 @@ class DashboardController extends Controller
         return response()->json(['message' => 'something went wrong...','error' => $e->getMessage()], 400);
 
     }
+    }
+
+    public function getReview(){
+        try{
+            $totalVisitor = DB::table('order')->count();
+
+            $totalSales = DB::table('order_product')
+            ->join('product_stock', 'order_product.stockID', '=', 'product_stock.stockID')
+            ->sum(DB::raw('order_product.orderedQuantity * product_stock.sellPrice'));
+    
+        $totalProfit = DB::table('order_product')
+            ->join('product_stock', 'order_product.stockID', '=', 'product_stock.stockID')
+            ->sum(DB::raw('order_product.orderedQuantity * (product_stock.sellPrice - product_stock.buyPrice)'));
+    
+        return response()->json([
+            'totalVisitor' => $totalVisitor,
+            'totalSales' => $totalSales,
+            'totalProfit' => $totalProfit,
+        ]);
+        }catch(Exception $e){
+            return response()->json(['message' => 'something went wrong...','error' => $e->getMessage()], 400);
+    
+        }
+
     }
 }
