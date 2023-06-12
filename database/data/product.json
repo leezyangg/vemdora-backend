@@ -2,7 +2,7 @@
 {"vendingMachineID":1,
   "stockName":"Pepsi",
    "level":1,"sellPrice":5.50,
-   "buyPrice":10,
+   "buyPrice":2.0,
    "supplierName":"Wei Lin",
    "stockQuantity":10, 
    "imageURL":"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de"
@@ -10,7 +10,7 @@
 {"vendingMachineID":1,
   "stockName":"superring",
    "level":2,"sellPrice":5.50,
-   "buyPrice":10,
+   "buyPrice":3,
    "supplierName":"Wei Lin",
    "stockQuantity":10, 
    "imageURL":"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de"
@@ -18,7 +18,7 @@
 {"vendingMachineID":1,
   "stockName":"Tie",
    "level":3,"sellPrice":5.50,
-   "buyPrice":10,
+   "buyPrice":1,
    "supplierName":"Wei Lin",
    "stockQuantity":10, 
    "imageURL":"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de"
@@ -26,7 +26,7 @@
 {"vendingMachineID":1,
   "stockName":"USB",
    "level":4,"sellPrice":5.50,
-   "buyPrice":10,
+   "buyPrice":5,
    "supplierName":"Wei Lin",
    "stockQuantity":10, 
    "imageURL":"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de"
@@ -34,7 +34,7 @@
 {"vendingMachineID":1,
   "stockName":"Watch",
    "level":5,"sellPrice":5.50,
-   "buyPrice":10,
+   "buyPrice":5.2,
    "supplierName":"Wei Lin",
    "stockQuantity":10, 
    "imageURL":"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de"
@@ -42,7 +42,7 @@
 {"vendingMachineID":2,
   "stockName":"Coca Cola",
    "level":1,"sellPrice":5.50,
-   "buyPrice":10,
+   "buyPrice":3.2,
    "supplierName":"Ying Xin",
    "stockQuantity":10, 
    "imageURL":"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de"
@@ -50,7 +50,7 @@
 {"vendingMachineID":2,
   "stockName":"Mr Potato",
    "level":2,"sellPrice":5.50,
-   "buyPrice":10,
+   "buyPrice":1.0,
    "supplierName":"Ying Xin",
    "stockQuantity":10, 
    "imageURL":"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de"
@@ -58,7 +58,7 @@
 {"vendingMachineID":2,
   "stockName":"Socks",
    "level":3,"sellPrice":5.50,
-   "buyPrice":10,
+   "buyPrice":1.0,
    "supplierName":"Ying Xin",
    "stockQuantity":10, 
    "imageURL":"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de"
@@ -66,7 +66,7 @@
 {"vendingMachineID":2,
   "stockName":"Eat Phone",
    "level":4,"sellPrice":5.50,
-   "buyPrice":10,
+   "buyPrice":2.50,
    "supplierName":"Ying Xin",
    "stockQuantity":10, 
    "imageURL":"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de"
@@ -74,7 +74,7 @@
 {"vendingMachineID":2,
   "stockName":"Spec",
    "level":5,"sellPrice":5.50,
-   "buyPrice":10,
+   "buyPrice":1.0,
    "supplierName":"Ying Xin",
    "stockQuantity":10, 
    "imageURL":"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de"

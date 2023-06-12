@@ -67,14 +67,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{hostname}}/api/ewallets/7",
+					"raw": "{{hostname}}/api/ewallets/1",
 					"host": [
 						"{{hostname}}"
 					],
 					"path": [
 						"api",
 						"ewallets",
-						"7"
+						"1"
 					]
 				}
 			},
@@ -128,7 +128,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"hello5@gmail.com\",\"password\":\"Test test\"\r\n}",
+					"raw": "{\r\n    \"email\":\"admin@gmail.com\",\"password\":\"Test1234\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -269,14 +269,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{hostname}}/api/orders/1/7",
+					"raw": "{{hostname}}/api/orders/2/7",
 					"host": [
 						"{{hostname}}"
 					],
 					"path": [
 						"api",
 						"orders",
-						"1",
+						"2",
 						"7"
 					]
 				}
@@ -334,6 +334,25 @@
 			"response": []
 		},
 		{
+			"name": "dashboard_get review",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{hostname}}/api/dashboard/review",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"api",
+						"dashboard",
+						"review"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "get supplier list",
 			"request": {
 				"method": "GET",
@@ -358,7 +377,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n     \"companyName\":\"Nestle\",\r\n     \"pic\": \"Zhi Yong\",\r\n     \"email\": \"hello7@gmail.com\",\r\n     \"password\":\"Test test\"\r\n}",
+					"raw": "{\r\n     \"companyName\":\"Nestle\",\r\n     \"pic\": \"Md Shahzar\",\r\n     \"email\": \"hello7@gmail.com\",\r\n     \"password\":\"Test test\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -472,14 +491,32 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{hostname}}/api/vendingMachines/stocktype",
+					"raw": "{{hostname}}/api/stocktype",
 					"host": [
 						"{{hostname}}"
 					],
 					"path": [
 						"api",
-						"vendingMachines",
 						"stocktype"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get sales data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{hostname}} /api/orders/sales",
+					"host": [
+						"{{hostname}} "
+					],
+					"path": [
+						"api",
+						"orders",
+						"sales"
 					]
 				}
 			},
