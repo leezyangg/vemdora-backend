@@ -1,0 +1,164 @@
+[
+    {"vendingMachineID":1,
+      "stockName":"Pepsi",
+       "level":1,"sellPrice":2.50,
+       "buyPrice":2.0,
+       "supplierName":"Wei Lin",
+       "stockQuantity":10, 
+       "imageURL":"%2Fpepsi.jpg?alt=media&token=fb8788b8-d53c-4e7c-8f9c-13bc35100e24"
+    },
+    {"vendingMachineID":1,
+      "stockName":"Gatorade",
+       "level":1,"sellPrice":5.50,
+       "buyPrice":3.0,
+       "supplierName":"Wei Lin",
+       "stockQuantity":10, 
+       "imageURL":"%2Fgatorade.jpg?alt=media&token=9daf8d06-3739-4e7a-93d1-16ae04e8f677"
+    },
+    
+    {"vendingMachineID":1,
+      "stockName":"superring",
+       "level":2,"sellPrice":5.50,
+       "buyPrice":3,
+       "supplierName":"Wei Lin",
+       "stockQuantity":10, 
+       "imageURL":"%2Fsuperring.jpg?alt=media&token=b0faee0d-44b5-4847-b182-b570cf9c6902"
+    },
+    {"vendingMachineID":1,
+      "stockName":"Chocolate Bar",
+       "level":2,"sellPrice":3.50,
+       "buyPrice":3,
+       "supplierName":"Wei Lin",
+       "stockQuantity":10, 
+       "imageURL":"%2Fcholate%20bar.jpg?alt=media&token=0d3bb522-0048-4545-b1e7-4279d290b083"
+    },
+    {"vendingMachineID":1,
+      "stockName":"Tie",
+       "level":3,"sellPrice":5.50,
+       "buyPrice":1,
+       "supplierName":"Wei Lin",
+       "stockQuantity":10, 
+       "imageURL":"%2Ftie.jpg?alt=media&token=99fdb09c-d14b-4566-b780-dfd7d54bd827"
+    },
+    {"vendingMachineID":1,
+    "stockName":"Handkerchief",
+     "level":3,"sellPrice":5.50,
+     "buyPrice":1,
+     "supplierName":"Wei Lin",
+     "stockQuantity":10, 
+     "imageURL":"%2Fhandkerchief.jpg?alt=media&token=64225dfc-04d8-408b-be5e-aacf18cfdeaf"
+  },
+    {"vendingMachineID":1,
+      "stockName":"USB",
+       "level":4,"sellPrice":5.50,
+       "buyPrice":5,
+       "supplierName":"Wei Lin",
+       "stockQuantity":10, 
+       "imageURL":"%2Fusb.jpg?alt=media&token=14a39e4a-2791-4b99-8be0-79787dbfd76f"
+    },
+    
+    {"vendingMachineID":1,
+      "stockName":"Tooth paste",
+       "level":5,"sellPrice":5.50,
+       "buyPrice":5.2,
+       "supplierName":"Wei Lin",
+       "stockQuantity":10, 
+       "imageURL":"%2Ftooth%20paste.jpg?alt=media&token=d692df17-89d0-4b38-b79f-1cc6e00eb77a"
+    },
+    {"vendingMachineID":2,
+      "stockName":"Coca Cola",
+       "level":1,"sellPrice":5.50,
+       "buyPrice":3.2,
+       "supplierName":"Ying Xin",
+       "stockQuantity":10, 
+       "imageURL":"%2Fcoca%20cola.jpg?alt=media&token=5184c87c-490c-4f63-9522-acdf4fda4614"
+    },
+    {"vendingMachineID":2,
+      "stockName":"Sprite",
+       "level":1,"sellPrice":5.50,
+       "buyPrice":3.2,
+       "supplierName":"Ying Xin",
+       "stockQuantity":10, 
+       "imageURL":"%2Fsprite.jpg?alt=media&token=c73ff2ba-d37b-4792-94ac-ed3bd722816f"
+    },
+    
+    {"vendingMachineID":2,
+      "stockName":"Mr Potato",
+       "level":2,"sellPrice":5.50,
+       "buyPrice":1.0,
+       "supplierName":"Ying Xin",
+       "stockQuantity":10, 
+       "imageURL":"%2Fmr%20potato.jpg?alt=media&token=a979dcbe-4ac8-499b-afbc-06392b3bee3e"
+    },
+    {"vendingMachineID":2,
+    "stockName":"Mamee Monster",
+     "level":2,"sellPrice":1.50,
+     "buyPrice":1.0,
+     "supplierName":"Ying Xin",
+     "stockQuantity":10, 
+     "imageURL":"%2Fmamee%20monster.jpg?alt=media&token=19f0b533-dee8-433c-b988-9ba36b5f284e"
+  },
+    {"vendingMachineID":2,
+      "stockName":"Socks",
+       "level":3,"sellPrice":5.50,
+       "buyPrice":1.0,
+       "supplierName":"Ying Xin",
+       "stockQuantity":10, 
+       "imageURL":"%2Fsocks.jpg?alt=media&token=6e20bd8e-7f16-4dec-9560-5f611b1f70b6"
+    },
+    {"vendingMachineID":2,
+      "stockName":"Mask",
+       "level":3,"sellPrice":5.50,
+       "buyPrice":1.0,
+       "supplierName":"Ying Xin",
+       "stockQuantity":10, 
+       "imageURL":"%2Fmask.jpg?alt=media&token=e22124b4-4061-4383-b06c-fc102f6a80a0"
+    },
+    {"vendingMachineID":2,
+      "stockName":"Ear Phone",
+       "level":4,"sellPrice":5.50,
+       "buyPrice":2.50,
+       "supplierName":"Ying Xin",
+       "stockQuantity":10, 
+       "imageURL":"%2Fear%20phone.jpg?alt=media&token=591d7b1b-cc5d-4efe-8f09-2ce3015fa319"
+    },
+    {"vendingMachineID":2,
+    "stockName":"Mouse",
+     "level":4,"sellPrice":25.50,
+     "buyPrice":28.50,
+     "supplierName":"Ying Xin",
+     "stockQuantity":10, 
+     "imageURL":"%2Fmouse.jpg?alt=media&token=f91a745a-6359-4a04-b7ab-1776d33e8f97"
+  },
+    {"vendingMachineID":2,
+      "stockName":"Spectacles",
+       "level":5,"sellPrice":5.50,
+       "buyPrice":1.0,
+       "supplierName":"Ying Xin",
+       "stockQuantity":10, 
+       "imageURL":"%2Fspectacles.jpg?alt=media&token=fc4fd0c0-9025-4c38-81c8-6adf6a968ad7"
+    },
+    {"vendingMachineID":1,
+      "stockName":"Tooth brush",
+       "level":5,"sellPrice":5.50,
+       "buyPrice":5.2,
+       "supplierName":"Wei Lin",
+       "stockQuantity":10, 
+       "imageURL":"%2Ftoothbrush.jpg?alt=media&token=aad9cf66-5b3a-48e4-b8a5-b3b2f32f2594"
+    },
+    {"vendingMachineID":3,
+      "stockName":"Shampoo",
+       "level":5,"sellPrice":15.50,
+       "buyPrice":10.0,
+       "supplierName":"Ying Xin",
+       "stockQuantity":10, 
+       "imageURL":"%2Fshampoo.jpg?alt=media&token=ed726ba4-662b-4479-a5fd-866857ee03e9"
+    }
+    
+    
+    
+    
+    
+    
+    
+    ]

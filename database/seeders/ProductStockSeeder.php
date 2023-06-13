@@ -16,7 +16,7 @@ class ProductStockSeeder extends Seeder
      */
     public function run(): void
     {
-        $json = File::get("database\data\product.json");
+        $json = File::get("database\data\product2.json");
         $product = json_decode($json);
 
         foreach ($product as $key => $value) {

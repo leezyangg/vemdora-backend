@@ -55,7 +55,7 @@ class sendNotification extends Command
             foreach($stocks as $stock){
                 //if there is item found below minimum stock, send email
                 $data = ['stockName' => $stock->stockName, 'body'=>'Please supply it'];
-                Mail::to('choongwenjian@gmail.com')->send(new MailSender($data));
+                Mail::to( $stock->email)->send(new MailSender($data));
             }
         }
     }

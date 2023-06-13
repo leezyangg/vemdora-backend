@@ -3,7 +3,7 @@
     { "userName": "Isaac","email" : "choongwenjian@gmail.com","password": "Test1234","userType" : "Public User","walletID":2},
     { "userName": "Jia Yi ","email" : "admin@gmail.com","password": "Test1234","userType" : "Business Owner"},
     { "userName": "Wei Lin","email" : "designer@gmail.com","password": "Test1234","userType" : "Supplier","companyName":"Nestle"},
-    { "userName": "Ying Xin","email" : "frontend@gmail.com","password": "Test1234","userType" : "Supplier","companyName":"Nestle"},
+    { "userName": "Ying Xin","email" : "goonyingxin@gmail.com","password": "Test1234","userType" : "Supplier","companyName":"Nestle"},
     { "userName": "ZhiYong","email" : "public1@gmail.com","password": "Test1234","userType" : "Public User","walletID":3},
     { "userName": "MengFan","email" : "public2@gmail.com","password": "Test1234","userType" : "Public User","walletID":4}
 

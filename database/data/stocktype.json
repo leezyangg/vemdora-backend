@@ -1,7 +1,7 @@
 [
-    {"level": 1,"stockType": "Snack"},
-    {"level": 2,"stockType": "Apparel"},
+    {"level": 1,"stockType": "Beverage"},
+    {"level": 2,"stockType": "Snack"},
     {"level": 3,"stockType": "Student kit"},
-    {"level": 4,"stockType": "Drinks"},
-    {"level": 5,"stockType": "Electronics"}
+    {"level": 4,"stockType": "Gadget"},
+    {"level": 5,"stockType": "Daily necessities"}
 ]
