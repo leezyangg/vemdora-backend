@@ -101,4 +101,49 @@ class DashboardController extends Controller
         }
 
     }
+
+    public function getVmMapDetails($vendingMachineID){
+        try{
+            
+            // $result = DB::table('order')
+            // ->select(
+            //     'vending_machine.vendingMachineID ',
+            //     'vending_machine.vendingMachineName',
+            //     'location.locationName ',
+            //     DB::raw('SUM(order_product.orderedQuantity * product_stock.sellPrice) as totalSales'),
+            //     DB::raw('SUM(order_product.orderedQuantity * (product_stock.sellPrice - product_stock.buyPrice)) as totalProfit')
+            // )
+            // ->join('order_product', 'order.orderID', '=', 'order_product.orderID')
+            // ->join('product_stock', 'order_product.stockID', '=', 'product_stock.stockID')
+            // ->join('vending_machine', 'order.vendingMachineID', '=', 'vending_machine.vendingMachineID')
+            // ->join('location', 'vending_machine.locationID', '=', 'location.locationID')
+            // ->where('order.vendingMachineID', '=', $vendingMachineID)
+            // ->groupBy('vending_machine.vendingMachineID', 'vending_machine.vendingMachineName', 'location.locationName')
+            // ->first();
+            $vending_machine = DB::table('vending_machine')->select(
+                'vending_machine.vendingMachineName','vending_machine.vendingMachineID','location.locationName'
+            )->join('location','vending_machine.locationID','=','location.locationID')
+            ->where('vending_machine.vendingMachineID','=',$vendingMachineID)->first();
+
+            $totalSales = DB::table('order_product')
+            ->join('order','order.orderID', '=', 'order_product.orderID')
+            ->join('product_stock', 'order_product.stockID', '=', 'product_stock.stockID')
+            ->where('order.vendingMachineID', '=', $vendingMachineID)
+            ->sum(DB::raw('order_product.orderedQuantity * product_stock.sellPrice'));
+
+            $totalProfit = DB::table('order_product')
+            ->join('order','order.orderID', '=', 'order_product.orderID')
+            ->join('product_stock', 'order_product.stockID', '=', 'product_stock.stockID')
+            ->where('order.vendingMachineID', '=', $vendingMachineID)
+            ->sum(DB::raw('order_product.orderedQuantity * (product_stock.sellPrice - product_stock.buyPrice)'));
+    
+        return response()->json(['vendingMachineID'=>$vending_machine->vendingMachineID,
+        'vendingMachineName' => $vending_machine->vendingMachineName,
+        'locationName' => $vending_machine->locationName,
+        'sales'=> $totalSales,'profit' => $totalProfit, ]);
+        }catch(Exception $e){
+            return response()->json(['message' => 'something went wrong...','error' => $e->getMessage()], 400);
+    
+        }
+    }
 }

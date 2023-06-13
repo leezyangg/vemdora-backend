@@ -66,6 +66,8 @@ Route::get('dashboard/topProducts',[DashboardController::class,'getTopProducts']
 Route::get('dashboard/topVendingMachines',[DashboardController::class,'getTopVendingMachines']);
 //retrive review of dashboard
 Route::get('dashboard/review',[DashboardController::class,'getReview']);
+//retrive the details of one vending machine
+Route::get('dashboard/{vendingMachineID}/details',[DashboardController::class,'getVmMapDetails']);
 //retrive a list of location
 Route::get('location',[LocationController::class,'getLocationList']);
 //show nearby vending machine base on location
