@@ -1,526 +1,396 @@
 {
-	"info": {
-		"_postman_id": "d5beed33-6420-44df-bcb3-aa83f7f49300",
-		"name": "Test_Laravel",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "25482931"
-	},
-	"item": [
-		{
-			"name": "register vm",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "  {\r\n  \"locationName\": \"University Putra Malaysia\",\r\n  \"vendingMachineName\": \"FSKTM Block C\"\r\n \r\n    \r\n  \r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{hostname}}/api/vendingMachines",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"vendingMachines"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get ewallet",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{hostname}}/api/ewallets/1",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"ewallets",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "top up ewallet",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"topUpAmount\":5000\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{hostname}}/api/ewallets/1",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"ewallets",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getVendingMachines",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{hostname}} /api/vendingMachines",
-					"host": [
-						"{{hostname}} "
-					],
-					"path": [
-						"api",
-						"vendingMachines"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "delete vm",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{hostname}}/api/vendingMachines/1/delete",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"vendingMachines",
-						"1",
-						"delete"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "verifyUser",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"admin@gmail.com\",\"password\":\"Test1234\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{hostname}} /api/users",
-					"host": [
-						"{{hostname}} "
-					],
-					"path": [
-						"api",
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "signUp",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \"userName\": \"Isaac\",\"email\" : \"choongwenjian@gmail.com\",\"password\": \"Test1234\"}\r\n\r\n        \r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{hostname}}/api/users",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getItems",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{hostname}}/api/vendingMachines/1/items",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"vendingMachines",
-						"1",
-						"items"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "addItems",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \r\n     \"items\": [\r\n    {\r\n       \"stockName\":\"Pepsi\",\r\n   \"level\":1,\"sellPrice\":5.50,\r\n   \"buyPrice\":10,\r\n   \"supplierName\":\"Wei Lin\",\r\n   \"stockQuantity\":10, \r\n   \"imageURL\":\"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de\"\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"superring\",\r\n      \"level\":2,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":15,\r\n        \"imageURL\":\"\"\r\n      \r\n    },\r\n    {\r\n    \"stockName\":\"superring\",\r\n   \"level\":2,\"sellPrice\":5.50,\r\n   \"buyPrice\":10,\r\n   \"supplierName\":\"Wei Lin\",\r\n   \"stockQuantity\":10, \r\n   \"imageURL\":\"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de\"\r\n    },\r\n    {\r\n    \"stockName\":\"Tie\",\r\n   \"level\":3,\"sellPrice\":5.50,\r\n   \"buyPrice\":10,\r\n   \"supplierName\":\"Wei Lin\",\r\n   \"stockQuantity\":10, \r\n   \"imageURL\":\"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de\"\r\n    },\r\n    {\r\n      \"stockName\":\"USB\",\r\n   \"level\":4,\"sellPrice\":5.50,\r\n   \"buyPrice\":10,\r\n   \"supplierName\":\"Wei Lin\",\r\n   \"stockQuantity\":10, \r\n   \"imageURL\":\"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de\"\r\n      \r\n    },\r\n    {\r\n        \"stockName\":\"Watch\",\r\n   \"level\":5,\"sellPrice\":5.50,\r\n   \"buyPrice\":10,\r\n   \"supplierName\":\"Wei Lin\",\r\n   \"stockQuantity\":10, \r\n   \"imageURL\":\"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de\"\r\n    }\r\n     ]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{hostname}}/api/vendingMachines/1/items",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"vendingMachines",
-						"1",
-						"items"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "calculate Order price",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \r\n     \"items\": [\r\n    {\r\n      \"stockName\": \"pepsi\",\r\n      \"level\":1,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n      \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"superring\",\r\n      \"level\":2,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"Tie\",\r\n      \"level\":3,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n       \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"USB\",\r\n      \"level\":4,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n         \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"Watch\",\r\n      \"level\":5,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"orderedQuantity\":10\r\n      \r\n    }\r\n     ]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/orders/calculatePrice",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"orders",
-						"calculatePrice"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Place order",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \r\n     \"items\": [\r\n    {\r\n      \"stockName\": \"Pepsi\",\r\n      \"level\":1,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n      \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"superring\",\r\n      \"level\":2,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"Tie\",\r\n      \"level\":3,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n       \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"USB\",\r\n      \"level\":4,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n         \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"Watch\",\r\n      \"level\":5,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"orderedQuantity\":10\r\n      \r\n    }\r\n     ]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{hostname}}/api/orders/2/7",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"orders",
-						"2",
-						"7"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "dashboard_get top products",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{hostname}}/api/dashboard/topProducts",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"dashboard",
-						"topProducts"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "dashboard_get top vending machines",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{hostname}}/api/dashboard/topVendingMachines",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"dashboard",
-						"topVendingMachines"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "dashboard_get review",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{hostname}}/api/dashboard/review",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"dashboard",
-						"review"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get supplier list",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{hostname}}/api/suppliers",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"suppliers"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "register new supplier",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n     \"companyName\":\"Nestle\",\r\n     \"pic\": \"Md Shahzar\",\r\n     \"email\": \"hello7@gmail.com\",\r\n     \"password\":\"Test test\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{hostname}}/api/suppliers/register",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"suppliers",
-						"register"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "update stock",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "\r\n    {\r\n  \r\n     \"items\": [\r\n    {\r\n      \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"100plus\",\r\n      \"level\":1,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n      \"suppliedQuantity\":10\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"superring\",\r\n      \"level\":2,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"suppliedQuantity\":15\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"Tie\",\r\n      \"level\":3,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"suppliedQuantity\":20\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"USB\",\r\n      \"level\":4,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"suppliedQuantity\":12\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"Watch\",\r\n      \"level\":5,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"suppliedQuantity\":30\r\n      \r\n    }\r\n     ]\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{hostname}}/api/suppliers/update/1",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"suppliers",
-						"update",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "check below stock",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8000/api/suppliers/alerts",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"suppliers",
-						"alerts"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get location list",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{hostname}}/api/location",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"location"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get vm based on location",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{hostname}}/api/location/2",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"location",
-						"2"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get stock type",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{hostname}}/api/stocktype",
-					"host": [
-						"{{hostname}}"
-					],
-					"path": [
-						"api",
-						"stocktype"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get sales data",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{hostname}} /api/orders/sales",
-					"host": [
-						"{{hostname}} "
-					],
-					"path": [
-						"api",
-						"orders",
-						"sales"
-					]
-				}
-			},
-			"response": []
-		}
-	]
+    "info": {
+        "_postman_id": "d5beed33-6420-44df-bcb3-aa83f7f49300",
+        "name": "Test_Laravel",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "25482931"
+    },
+    "item": [
+        {
+            "name": "register vm",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "  {\r\n  \"locationName\": \"University Putra Malaysia\",\r\n  \"vendingMachineName\": \"FSKTM Block C\"\r\n \r\n    \r\n  \r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{hostname}}/api/vendingMachines",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "vendingMachines"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "get ewallet",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{hostname}}/api/ewallets/1",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "ewallets", "1"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "top up ewallet",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"topUpAmount\":5000\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{hostname}}/api/ewallets/1",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "ewallets", "1"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "getVendingMachines",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{hostname}} /api/vendingMachines",
+                    "host": ["{{hostname}} "],
+                    "path": ["api", "vendingMachines"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "delete vm",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "{{hostname}}/api/vendingMachines/1/delete",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "vendingMachines", "1", "delete"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "verifyUser",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"email\":\"admin@gmail.com\",\"password\":\"Test1234\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{hostname}} /api/users",
+                    "host": ["{{hostname}} "],
+                    "path": ["api", "users"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "signUp",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{ \"userName\": \"Isaac\",\"email\" : \"choongwenjian@gmail.com\",\"password\": \"Test1234\"}\r\n\r\n        \r\n",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{hostname}}/api/users",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "users"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "getItems",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{hostname}}/api/vendingMachines/1/items",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "vendingMachines", "1", "items"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "addItems",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \r\n     \"items\": [\r\n    {\r\n       \"stockName\":\"Pepsi\",\r\n   \"level\":1,\"sellPrice\":5.50,\r\n   \"buyPrice\":10,\r\n   \"supplierName\":\"Wei Lin\",\r\n   \"stockQuantity\":10, \r\n   \"imageURL\":\"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de\"\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"superring\",\r\n      \"level\":2,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"stockQuantity\":15,\r\n        \"imageURL\":\"\"\r\n      \r\n    },\r\n    {\r\n    \"stockName\":\"superring\",\r\n   \"level\":2,\"sellPrice\":5.50,\r\n   \"buyPrice\":10,\r\n   \"supplierName\":\"Wei Lin\",\r\n   \"stockQuantity\":10, \r\n   \"imageURL\":\"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de\"\r\n    },\r\n    {\r\n    \"stockName\":\"Tie\",\r\n   \"level\":3,\"sellPrice\":5.50,\r\n   \"buyPrice\":10,\r\n   \"supplierName\":\"Wei Lin\",\r\n   \"stockQuantity\":10, \r\n   \"imageURL\":\"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de\"\r\n    },\r\n    {\r\n      \"stockName\":\"USB\",\r\n   \"level\":4,\"sellPrice\":5.50,\r\n   \"buyPrice\":10,\r\n   \"supplierName\":\"Wei Lin\",\r\n   \"stockQuantity\":10, \r\n   \"imageURL\":\"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de\"\r\n      \r\n    },\r\n    {\r\n        \"stockName\":\"Watch\",\r\n   \"level\":5,\"sellPrice\":5.50,\r\n   \"buyPrice\":10,\r\n   \"supplierName\":\"Wei Lin\",\r\n   \"stockQuantity\":10, \r\n   \"imageURL\":\"%2F202110210138.png?alt=media&token=0143b968-7445-4e15-ac0c-f1a677db84de\"\r\n    }\r\n     ]\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{hostname}}/api/vendingMachines/1/items",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "vendingMachines", "1", "items"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "calculate Order price",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \r\n     \"items\": [\r\n    {\r\n      \"stockName\": \"pepsi\",\r\n      \"level\":1,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n      \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"superring\",\r\n      \"level\":2,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"Tie\",\r\n      \"level\":3,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n       \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"USB\",\r\n      \"level\":4,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n         \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"Watch\",\r\n      \"level\":5,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"orderedQuantity\":10\r\n      \r\n    }\r\n     ]\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/orders/calculatePrice",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8000",
+                    "path": ["api", "orders", "calculatePrice"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Place order",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \r\n     \"items\": [\r\n    {\r\n      \"stockName\": \"Pepsi\",\r\n      \"level\":1,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n      \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"superring\",\r\n      \"level\":2,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"Tie\",\r\n      \"level\":3,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n       \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"USB\",\r\n      \"level\":4,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n         \"orderedQuantity\":10\r\n      \r\n    },\r\n    {\r\n      \"stockName\": \"Watch\",\r\n      \"level\":5,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"orderedQuantity\":10\r\n      \r\n    }\r\n     ]\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{hostname}}/api/orders/2/7",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "orders", "2", "7"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "dashboard_get top products",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{hostname}}/api/dashboard/topProducts",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "dashboard", "topProducts"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "dashboard_get top vending machines",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{hostname}}/api/dashboard/topVendingMachines",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "dashboard", "topVendingMachines"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "dashboard_get review",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{hostname}}/api/dashboard/review",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "dashboard", "review"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "get supplier list",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{hostname}}/api/suppliers",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "suppliers"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "register new supplier",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n     \"companyName\":\"Nestle\",\r\n     \"pic\": \"Md Shahzar\",\r\n     \"email\": \"hello7@gmail.com\",\r\n     \"password\":\"Test test\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{hostname}}/api/suppliers/register",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "suppliers", "register"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "update stock",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "\r\n    {\r\n  \r\n     \"items\": [\r\n    {\r\n      \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"100plus\",\r\n      \"level\":1,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n      \"suppliedQuantity\":10\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"superring\",\r\n      \"level\":2,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"suppliedQuantity\":15\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"Tie\",\r\n      \"level\":3,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"suppliedQuantity\":20\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"USB\",\r\n      \"level\":4,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"suppliedQuantity\":12\r\n      \r\n    },\r\n    {\r\n     \"supplierName\":\"Wei Lin\",\r\n      \"stockName\": \"Watch\",\r\n      \"level\":5,\r\n      \"buyPrice\":0.5,\r\n      \"sellPrice\":2.5,\r\n        \"suppliedQuantity\":30\r\n      \r\n    }\r\n     ]\r\n}\r\n",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{hostname}}/api/suppliers/update/1",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "suppliers", "update", "1"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "check below stock",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/suppliers/alerts",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8000",
+                    "path": ["api", "suppliers", "alerts"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "get location list",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{hostname}}/api/location",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "location"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "get vm based on location",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{hostname}}/api/location/2",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "location", "2"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "get stock type",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{hostname}}/api/stocktype",
+                    "host": ["{{hostname}}"],
+                    "path": ["api", "stocktype"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "get sales data",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{hostname}} /api/orders/sales",
+                    "host": ["{{hostname}} "],
+                    "path": ["api", "orders", "sales"]
+                }
+            },
+            "response": []
+        }
+    ]
 }
