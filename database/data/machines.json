@@ -1,7 +1,16 @@
 [
-    { "locationID": 1, "vendingMachineName" : "FBMK Block B"},
-    { "locationID": 2, "vendingMachineName" : "FBMK Block C"},
-    { "locationID": 3, "vendingMachineName" : "FBMK Block C"},
-    { "locationID": 4, "vendingMachineName" : "FBMK Block C"},
-    { "locationID": 4, "vendingMachineName" : "FBMK Block C"}
+    { "locationID": 1, "vendingMachineName" : "Faculty of Design and Architecture"},
+    { "locationID": 1, "vendingMachineName" : "Faculty of Food Science and Technology"},
+    { "locationID": 1, "vendingMachineName" : "Faculty Of Modern Languages And Communication"},
+    { "locationID": 1, "vendingMachineName" : "Faculty of Computer Science and Information Technology"},
+    { "locationID": 2, "vendingMachineName" : "Institute Of Postgraduate Studies"},
+    { "locationID": 2, "vendingMachineName" : "Subaidah"},
+    { "locationID": 3, "vendingMachineName" : "Block E, Institute of Biological Sciences, Faculty of Science"},
+    { "locationID": 3, "vendingMachineName" : "Academy Of Malay Studies (APM)"},
+    { "locationID": 3, "vendingMachineName" : "Faculty of Medicine"},
+    { "locationID": 3, "vendingMachineName" : "Main Library"},
+    { "locationID": 4, "vendingMachineName" : "Fakulti Pengajian Islam"},
+    { "locationID": 4, "vendingMachineName" : "Faculty of Economics & Management"},
+    { "locationID": 4, "vendingMachineName" : "Faculty of Social Sciences & Humanities"},
+    { "locationID": 4, "vendingMachineName" : "Fakulti Kejuruteraan dan Alam Bina"}
 ]

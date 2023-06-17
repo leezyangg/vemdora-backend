@@ -48,7 +48,8 @@ class DashboardController extends Controller
         ->select('vending_machine.vendingMachineName',
         'order.vendingMachineID', 
         DB::raw('SUM(order_product.orderedQuantity * product_stock.sellPrice) as totalSales'), 
-        DB::raw('SUM(order_product.orderedQuantity * (product_stock.sellPrice - product_stock.buyPrice)) as totalProfit'))
+        DB::raw('ROUND(SUM(order_product.orderedQuantity * (product_stock.sellPrice - product_stock.buyPrice)),2) as totalProfit')
+        )
         ->join('order_product', 'order.orderID', '=', 'order_product.orderID')
         ->join('product_stock', 'order_product.stockID', '=', 'product_stock.stockID')
         ->join('vending_machine','vending_machine.vendingMachineID','=','order.vendingMachineID')

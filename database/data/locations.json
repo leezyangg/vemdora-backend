@@ -1,8 +1,8 @@
 [
 
     { "locationName": "University Putra Malaysia(UPM)","latitude":"2.9995","longitude":"101.7056"},
-    { "locationName": "University Sains Malaysia(USM)","latitude":"5.362428317998834","longitude":"100.30354766632657"},
-    { "locationName": "University Malaya(UM)","latitude":"3.221165351940415","longitude":"101.63069528110994"},
+    { "locationName": "University Sains Malaysia","latitude":"5.362428317998834","longitude":"100.30354766632657"},
+    { "locationName": "University of Malaya","latitude":"3.221165351940415","longitude":"101.63069528110994"},
     { "locationName": "University Kebangsaan Malaysia(UKM)","latitude":" 2.9289","longitude":"101.7800"}
 
 

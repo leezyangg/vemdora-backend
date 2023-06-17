@@ -40,7 +40,7 @@ class sendNotification extends Command
         //get the supplier email and products
         $found_item = DB::table('product_stock')
              ->join('user', 'product_stock.supplierID', '=', 'user.userID')
-             ->select('user.email','product_stock.stockName')
+             ->select('user.email','product_stock.stockName',)
              ->where('product_stock.stockID', '=', $product->stockID)
              ->get();
 

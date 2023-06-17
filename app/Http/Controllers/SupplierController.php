@@ -95,6 +95,14 @@ class SupplierController extends Controller
              ->where('product_stock.stockID', '=', $product->stockID)
              ->get();
 
+        $vendingMachine = DB::table('product_vending_machine')
+        ->join('vending_machine', 'product_vending_machine.vendingMachineID', '=', 'vending_machine.vendingMachineID')
+        ->where('product_vending_machine.stockID', '=', $product->stockID)
+        ->select('vending_machine.vendingMachineName')
+        ->first();
+
+      $found_item->vendingMachineName = $vendingMachine->vendingMachineName;
+      error_log($found_item->vendingMachineName);
         $low_in_stock []=  $found_item;
         
 
