@@ -15,64 +15,81 @@ Follow the instruction below:
 
 Run this in the folder that you wish to set up the project:
 
+```
+# Clone this repository
 git clone https://github.com/leezyangg/vemdora-backend.git
 
-Then run cd <repo_folder>
+# Go into the repository
+cd vemdora-backend
+```
 
 ### Set up .env file and configuration
 
 In project's directory RUN :
 
-MacOS: mv .env.example .env
+MacOS: 
+```
+mv .env.example .env
+```
 
-Windows: copy .env.example .env
+Windows: 
+```
+copy .env.example .env
+```
 
 Open .env file, configure database to your local MySql settings
 
 ## Generate a new application key:
 
-php artisan key:generate
+
+`php artisan key:generate`
+
 
 ## Install the project dependencies using Composer:
 
-composer install
+`composer install`
+
 
 ## Set Up Database table by running migration
 
-php artisan migrate
+`php artisan migrate`
+
 
 If you want to drop all tables and remigrate:
 
-php artisan migrate:fresh
+`php artisan migrate:fresh`
+
 
 ## Seeding(create) mock up data
 
 To check the seeder class name, go to /database/seeders
 
+```
 php artisan db:seed <seeder_class_name>
 php artisan db:seed LocationSeeder
 php artisan db:seed StockTypeSeeder
+```
 
 ## Starting Laravel developer server
 
-php artisan serve
+`php artisan serve`
 
 ## Testing API Endpoint and Request Data Format
 
-Take Note, We need desktop version POSTMAN for localhost testing.
-https://www.postman.com/downloads/
+Take Note, We need desktop version [POSTMAN](https://www.postman.com/downloads/) for localhost testing.
 
-Follow the tutorial in this link to import to your postman:
-https://www.softwaretestinghelp.com/postman-collections-import-export-generate-code/#:~:text=%231)%20To%20import%20a%20collection,file%20to%20the%20file%20system.&text=%232)%20Now%20open%20Postman%20and,Postman%20collection%20in%20the%20application
+Follow the tutorial in this <a href="https://www.softwaretestinghelp.com/postman-collections-import-export-generate-code/#:~:text=%231)%20To%20import%20a%20collection,file%20to%20the%20file%20system.&text=%232)%20Now%20open%20Postman%20and,Postman%20collection%20in%20the%20application">link</a> to import to your postman
 
 ## Setting up Email configuration
 
 This setting below is using gmail server....
 
 In .env file, change these:
+```
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=587
+```
 
 and also other relevant info such sending from which email address.
 
@@ -80,8 +97,8 @@ Next, go to your gmail account, select manage account - > security.
 In 2FA section, search for App password. Create one and paste it in .env file
 
 ## Run schedule job to check stock below minimum treshold
+`php artisan schedule:work`
 
-php artisan schedule:work
 
 This command need to be run besides the serve(run it in another terminal).
 
